@@ -11,11 +11,46 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Titre": {
+    "titre": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "blocks"
+    },
+    "centresInterets": {
+      "type": "component",
+      "component": "shared.titre-et-description",
+      "repeatable": true
+    },
+    "tachesQuotidiennes": {
+      "type": "component",
+      "component": "shared.titre-et-description",
+      "repeatable": true
+    },
+    "pourquoi": {
+      "type": "component",
+      "component": "shared.pourquoi-metier",
+      "repeatable": false
+    },
+    "appellations": {
+      "type": "component",
+      "component": "shared.appellation",
+      "repeatable": true
+    },
+    "metiersProches": {
+      "type": "component",
+      "component": "shared.metier-proche",
+      "repeatable": true
+    },
+    "salaire": {
+      "type": "component",
+      "component": "shared.salaire",
+      "repeatable": false
+    },
+    "codeRomeMetier": {
+      "type": "component",
+      "component": "shared.rome-code",
+      "repeatable": false
     }
   }
 }

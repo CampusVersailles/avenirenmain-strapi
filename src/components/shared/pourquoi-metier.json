@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_pourquoi_metiers",
+  "info": {
+    "displayName": "PourquoiMetier"
+  },
+  "options": {},
+  "attributes": {
+    "environnementTravail": {
+      "type": "blocks"
+    },
+    "statuts": {
+      "type": "blocks"
+    },
+    "opportunites": {
+      "type": "blocks"
+    },
+    "notes": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

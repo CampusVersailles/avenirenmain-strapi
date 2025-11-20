@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "formation_durees",
+  "info": {
+    "singularName": "formation-duree",
+    "pluralName": "formation-durees",
+    "displayName": "FormationDuree"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

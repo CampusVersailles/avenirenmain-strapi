@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_salaires",
+  "info": {
+    "displayName": "Salaire"
+  },
+  "options": {},
+  "attributes": {
+    "valeur_basse": {
+      "type": "integer"
+    },
+    "valeur_haute": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

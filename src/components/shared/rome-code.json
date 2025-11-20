@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_rome_codes",
+  "info": {
+    "displayName": "RomeCode"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
