@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_shared_adresses",
+  "info": {
+    "displayName": "Adresse"
+  },
+  "options": {},
+  "attributes": {
+    "adresseComplete": {
+      "type": "string"
+    },
+    "numeroRue": {
+      "type": "string"
+    },
+    "rue": {
+      "type": "string"
+    },
+    "complement": {
+      "type": "string"
+    },
+    "codePostal": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

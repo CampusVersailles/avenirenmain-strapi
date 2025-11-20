@@ -1,75 +1,100 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface SharedAdresse extends Struct.ComponentSchema {
+  collectionName: 'components_shared_adresses';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'Adresse';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    adresseComplete: Schema.Attribute.String;
+    codePostal: Schema.Attribute.String;
+    complement: Schema.Attribute.String;
+    latitude: Schema.Attribute.Decimal;
+    longitude: Schema.Attribute.Decimal;
+    numeroRue: Schema.Attribute.String;
+    pays: Schema.Attribute.String;
+    rue: Schema.Attribute.String;
+    ville: Schema.Attribute.String;
   };
 }
 
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
+export interface SharedAppellation extends Struct.ComponentSchema {
+  collectionName: 'components_shared_appellations';
   info: {
-    displayName: 'Quote';
-    icon: 'indent';
+    displayName: 'Appellation';
   };
   attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    metier: Schema.Attribute.Relation<'oneToOne', 'api::metier.metier'>;
+    metierDisponible: Schema.Attribute.Boolean;
+    nom: Schema.Attribute.String;
   };
 }
 
-export interface SharedRichText extends Struct.ComponentSchema {
-  collectionName: 'components_shared_rich_texts';
+export interface SharedMetierProche extends Struct.ComponentSchema {
+  collectionName: 'components_shared_metier_proches';
   info: {
-    description: '';
-    displayName: 'Rich text';
-    icon: 'align-justify';
+    displayName: 'MetierProche';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    nom: Schema.Attribute.String;
   };
 }
 
-export interface SharedSeo extends Struct.ComponentSchema {
-  collectionName: 'components_shared_seos';
+export interface SharedPourquoiMetier extends Struct.ComponentSchema {
+  collectionName: 'components_shared_pourquoi_metiers';
   info: {
-    description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    displayName: 'PourquoiMetier';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    environnementTravail: Schema.Attribute.Blocks;
+    notes: Schema.Attribute.Blocks;
+    opportunites: Schema.Attribute.Blocks;
+    statuts: Schema.Attribute.Blocks;
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
+export interface SharedRomeCode extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rome_codes';
   info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
+    displayName: 'RomeCode';
   };
   attributes: {
-    files: Schema.Attribute.Media<'images', true>;
+    code: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSalaire extends Struct.ComponentSchema {
+  collectionName: 'components_shared_salaires';
+  info: {
+    displayName: 'Salaire';
+  };
+  attributes: {
+    valeur_basse: Schema.Attribute.Integer;
+    valeur_haute: Schema.Attribute.Integer;
+  };
+}
+
+export interface SharedTitreEtDescription extends Struct.ComponentSchema {
+  collectionName: 'components_shared_titre_et_descriptions';
+  info: {
+    displayName: 'TitreEtDescription';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    titre: Schema.Attribute.String;
   };
 }
 
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
-      'shared.rich-text': SharedRichText;
-      'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
+      'shared.adresse': SharedAdresse;
+      'shared.appellation': SharedAppellation;
+      'shared.metier-proche': SharedMetierProche;
+      'shared.pourquoi-metier': SharedPourquoiMetier;
+      'shared.rome-code': SharedRomeCode;
+      'shared.salaire': SharedSalaire;
+      'shared.titre-et-description': SharedTitreEtDescription;
     }
   }
 }

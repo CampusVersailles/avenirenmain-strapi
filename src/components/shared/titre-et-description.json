@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_titre_et_descriptions",
+  "info": {
+    "displayName": "TitreEtDescription"
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

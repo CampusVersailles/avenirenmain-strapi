@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "formation_niveaus",
+  "info": {
+    "singularName": "formation-niveau",
+    "pluralName": "formation-niveaus",
+    "displayName": "FormationNiveau"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}
