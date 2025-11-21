@@ -53,6 +53,11 @@
     },
     "certificat": {
       "type": "string"
+    },
+    "origine": {
+      "type": "component",
+      "component": "shared.origine",
+      "repeatable": false
     }
   }
 }

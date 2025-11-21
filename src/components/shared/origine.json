@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_origines",
+  "info": {
+    "displayName": "Origine"
+  },
+  "options": {},
+  "attributes": {
+    "typeOrigine": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Manuel",
+        "API",
+        "Systeme"
+      ]
+    },
+    "detailsOrigine": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
