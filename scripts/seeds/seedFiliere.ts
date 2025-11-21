@@ -37,13 +37,10 @@ export async function seedFiliere(strapi: Core.Strapi) {
       item.icone.name
     );
     seedData.push({
-      nom: item.nom,
-      titre: item.titre,
-      description: item.description,
-      photo: photo,
-      video: video,
-      icone: icone,
-      romeCode_GrandDomaines: item.romeCode_GrandDomaines,
+      ...item,
+      photo,
+      video,
+      icone,
     });
   }
   await insertDocuments(strapi, seedData, TARGET_UID);
