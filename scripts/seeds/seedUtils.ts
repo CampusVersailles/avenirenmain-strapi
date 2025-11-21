@@ -2,6 +2,7 @@ import type { Core, Data, UID } from "@strapi/strapi";
 import axios from "axios";
 import path from "node:path";
 import fs from "node:fs/promises";
+import { extension } from "mime-types";
 import { PluginUploadFile } from "../../types/generated/contentTypes";
 
 /**
@@ -50,11 +51,23 @@ export async function checkFileExistsBeforeUpload(
   }
 }
 
+/**
+ * Download a file from a URL and upload it to Strapi.
+ * @param url - The URL of the file to upload
+ * @param name - The name of the file
+ * @returns the uploaded file
+ */
 export async function uploadFromUrl(url: string, name: string) {
   const downloaded = await downloadFromUrl(url, name);
   return await uploadFile(downloaded, name);
 }
 
+/**
+ * Download a file from a URL and return the details of the file.
+ * @param url - The URL of the file to download
+ * @param name - The name of the file
+ * @returns the details of the file
+ */
 async function downloadFromUrl(url: string, name: string): Promise<FileData> {
   // Download the file as a binary buffer
   const response = await axios.get(url, { responseType: "arraybuffer" });
@@ -63,7 +76,7 @@ async function downloadFromUrl(url: string, name: string): Promise<FileData> {
 
   const mimeType =
     response.headers["content-type"] || "application/octet-stream";
-  const extFromMime = "bin";
+  const extFromMime = extension(mimeType) || "bin";
   const fileName = `${name}.${extFromMime}`;
 
   const tmpPath = path.join("data", "downloads", fileName);
@@ -77,6 +90,12 @@ async function downloadFromUrl(url: string, name: string): Promise<FileData> {
   };
 }
 
+/**
+ * Upload a file to Strapi.
+ * @param file - The details of the file to upload
+ * @param name - The name of the file
+ * @returns the uploaded file
+ */
 async function uploadFile(file: FileData, name: string) {
   return strapi
     .plugin("upload")
