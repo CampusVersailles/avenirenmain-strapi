@@ -2,6 +2,7 @@ import type { Core, Data, UID } from "@strapi/strapi";
 import { createStrapi, compileStrapi } from "@strapi/strapi";
 import { seedFormationDuree } from "./seedFormationDuree";
 import { seedFormationNiveau } from "./seedFormationNiveau";
+import { seedFiliere } from "./seedFiliere";
 
 /**
  * Seed the database with the data from the seed files.
@@ -13,6 +14,7 @@ async function main() {
 
   app.log.level = "info";
 
+  await seedFiliere(app);
   await seedFormationDuree(app);
   await seedFormationNiveau(app);
   await app.destroy();
