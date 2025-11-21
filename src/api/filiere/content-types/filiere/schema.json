@@ -40,6 +40,16 @@
         "audios"
       ]
     },
+    "icone": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "audios",
+        "videos"
+      ]
+    },
     "romeCode_GrandDomaines": {
       "type": "json"
     }

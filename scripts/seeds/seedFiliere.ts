@@ -1,26 +1,27 @@
 import type { Core, Data } from "@strapi/strapi";
-import {
-  checkFileExistsBeforeUpload,
-  insertDocuments,
-  uploadFromUrl,
-} from "./seedUtils";
+import { checkFileExistsBeforeUpload, insertDocuments } from "./seedUtils";
 import { filieres } from "../../data/data.json";
 
-const TARGET_UID = "api::filiere.filiere" as const;
+const TARGET_UID = "api::filiere.filiere";
 type TARGET_UID_TYPE = typeof TARGET_UID;
 
 type FiliereFullType = Data.ContentType<TARGET_UID_TYPE>;
 type FiliereSubset = Pick<
   FiliereFullType,
-  "nom" | "titre" | "description" | "photo" | "video" | "romeCode_GrandDomaines"
+  | "nom"
+  | "titre"
+  | "description"
+  | "photo"
+  | "video"
+  | "icone"
+  | "romeCode_GrandDomaines"
 >;
 
 /**
  * Seed the `Filiere` content type.
  * @param strapi - The Strapi instance
- * @returns Promise<void>
  */
-export async function seedFiliere(strapi: Core.Strapi): Promise<void> {
+export async function seedFiliere(strapi: Core.Strapi) {
   const seedData: FiliereSubset[] = [];
   for (const item of filieres) {
     const photo = await checkFileExistsBeforeUpload(
@@ -31,12 +32,17 @@ export async function seedFiliere(strapi: Core.Strapi): Promise<void> {
       item.video.url,
       item.video.name
     );
+    const icone = await checkFileExistsBeforeUpload(
+      item.icone.url,
+      item.icone.name
+    );
     seedData.push({
       nom: item.nom,
       titre: item.titre,
       description: item.description,
       photo: photo,
       video: video,
+      icone: icone,
       romeCode_GrandDomaines: item.romeCode_GrandDomaines,
     });
   }

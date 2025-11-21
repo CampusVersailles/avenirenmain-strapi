@@ -58,6 +58,10 @@
         "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729949001499x395750288618175200/Art.mp4",
         "name": "f_video_artisanat_art_design"
       },
+      "icone": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729845487775x126964864867605390/F_Artisanat_arts.svg",
+        "name": "f_icone_artisanat_art_design"
+      },
       "romeCode_GrandDomaines": ["B", "D", "E", "H", "K"]
     },
     {
@@ -71,6 +75,10 @@
       "video": {
         "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729687955070x407793411428858400/F_horticulture_paysage.mp4",
         "name": "f_video_horticulture_paysage"
+      },
+      "icone": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729845499260x119319535343900940/F_horticulture.svg",
+        "name": "f_icone_horticulture_paysage"
       },
       "romeCode_GrandDomaines": ["A", "D", "F"]
     },
@@ -86,6 +94,10 @@
         "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1730721185422x887974459858089500/-dd35-4cec-9d23-0f347fe68f9a.mp4",
         "name": "f_video_accueil_tourisme"
       },
+      "icone": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729845605350x224299397700320500/F_Tourisme.svg",
+        "name": "f_icone_accueil_tourisme"
+      },
       "romeCode_GrandDomaines": ["G", "E", "M"]
     },
     {
@@ -100,6 +112,10 @@
         "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729949070258x541822938906579400/patrimoine.mp4",
         "name": "f_video_patrimoine_bati"
       },
+      "icone": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729845620346x918546991246244100/F_Patrimoine.svg",
+        "name": "f_icone_patrimoine_bati"
+      },
       "romeCode_GrandDomaines": ["F", "H"]
     },
     {
@@ -113,6 +129,10 @@
       "video": {
         "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729949419494x419118027282863000/gastronomie%20%28240p%29.mp4",
         "name": "f_video_gastronomie"
+      },
+      "icone": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729845628468x498062869480699000/F_gastronomie.svg",
+        "name": "f_icone_gastronomie"
       },
       "romeCode_GrandDomaines": ["G", "A", "D"]
     }

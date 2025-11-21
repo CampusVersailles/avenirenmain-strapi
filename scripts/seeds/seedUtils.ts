@@ -1,4 +1,4 @@
-import type { Core, Data, UID } from "@strapi/strapi";
+import type { Core, UID } from "@strapi/strapi";
 import axios from "axios";
 import path from "node:path";
 import fs from "node:fs/promises";
@@ -16,7 +16,7 @@ export async function insertDocuments<T>(
   strapi: Core.Strapi,
   data: T[],
   targetUid: UID.ContentType
-): Promise<void> {
+) {
   for (const item of data) {
     await strapi.documents(targetUid).create({
       data: item,
@@ -79,6 +79,10 @@ async function downloadFromUrl(url: string, name: string): Promise<FileData> {
   const extFromMime = extension(mimeType) || "bin";
   const fileName = `${name}.${extFromMime}`;
 
+  // Create the directory if it doesn't exist
+  await fs.mkdir(path.join("data", "downloads"), { recursive: true });
+
+  // Write the file to the temporary directory
   const tmpPath = path.join("data", "downloads", fileName);
   await fs.writeFile(tmpPath, buffer);
 
