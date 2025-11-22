@@ -72,14 +72,41 @@ type AlternanceFormation = {
     duration?: number;
   };
 };
-
-const domains = ["A"];
-
 const main = async () => {
-  let formations: AlternanceFormation[] = [];
+  console.log("Fetching filieres from Strapi...");
+  const filieresResponse = await axios.get<{
+    data: {
+      id: number;
+      nom: string;
+      romeCode_GrandDomaines: string[];
+    }[];
+  }>(`${process.env.STRAPI_API_URL}/filieres`, {
+    headers: {
+      Authorization: `Bearer ${process.env.STRAPI_WRITE_API_TOKEN}`,
+    },
+  });
 
-  for (const romeDomain of domains) {
-    console.log(`Fetching formations with romeDomain: ${romeDomain}`);
+  const filieres = filieresResponse.data.data;
+  console.log(`Found ${filieres.length} filieres`);
+
+  const romeDomainToFilieres = new Map<string, number[]>();
+
+  for (const filiere of filieres) {
+    for (const romeDomain of filiere.romeCode_GrandDomaines) {
+      if (!romeDomainToFilieres.has(romeDomain)) {
+        romeDomainToFilieres.set(romeDomain, []);
+      }
+      romeDomainToFilieres.get(romeDomain).push(filiere.id);
+    }
+  }
+
+  console.log(`Found ${romeDomainToFilieres.size} unique rome domains\n`);
+
+  let total = 0;
+  for (const [romeDomain, filiereIds] of romeDomainToFilieres.entries()) {
+    console.log(
+      `Fetching formations for romeDomain: ${romeDomain} (linked to ${filiereIds.length} filieres)`
+    );
 
     const results = await axios.get<{
       results: AlternanceFormation[];
@@ -92,41 +119,41 @@ const main = async () => {
       }
     );
 
-    formations.push(...results.data.results);
+    const formations = results.data.results;
+    console.log(`  Found ${formations.length} formations`);
+    total += formations.length;
 
-    console.log(
-      `Fetched ${results.data.results.length} formations, total fetched: ${formations.length}`
-    );
-  }
-
-  for (const formation of formations) {
-    console.log("Pushing formation to Strapi:", formation.title);
-    await axios.post(
-      `${process.env.STRAPI_API_URL}/formations`,
-      {
-        data: {
-          titre: formation.title,
-          nomEtablissement: formation.company?.name,
-          alternance: true,
-          siteWeb: formation.onisepUrl,
-          contact: formation.contact?.phone,
-          adresse: {
-            adresseComplete: formation.place?.fullAddress,
-            codePostal: formation.place?.zipCode,
-            pays: "France",
-            ville: formation.place?.city,
-            latitude: formation.place?.latitude,
-            longitude: formation.place?.longitude,
+    for (const formation of formations) {
+      await axios.post(
+        `${process.env.STRAPI_API_URL}/formations`,
+        {
+          data: {
+            titre: formation.title,
+            nomEtablissement: formation.company?.name,
+            alternance: true,
+            siteWeb: formation.onisepUrl,
+            contact: formation.contact?.phone,
+            filieres: filiereIds,
+            adresse: {
+              adresseComplete: formation.place?.fullAddress,
+              codePostal: formation.place?.zipCode,
+              pays: "France",
+              ville: formation.place?.city,
+              latitude: formation.place?.latitude,
+              longitude: formation.place?.longitude,
+            },
           },
         },
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.STRAPI_WRITE_API_TOKEN}`,
-        },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.STRAPI_WRITE_API_TOKEN}`,
+          },
+        }
+      );
+    }
+    console.log(` ✓ Created in strapi.`);
   }
+  console.log(`\n✓ ${total} formations created in total.`);
 };
 
 main();
