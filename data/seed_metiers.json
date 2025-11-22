@@ -1,0 +1,770 @@
+{
+  "metiers": [
+    {
+      "titre": "Conservateur / Conservatrice du patrimoine",
+      "description": "Supervise et met en oeuvre la politique et les actions de conservation, d'étude, d'enrichissement, de mise en valeur et de diffusion des patrimoines culturels, selon la réglementation et la politique culturelle de la structure.\\nPeut diriger une équipe ou un service et en gérer le budget.",
+      "codeRomeMetier": "K1602",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587470481x349280228962897340/107%20-%20kevin-laminto-4xbUFduTEY0-unsplash%20%281%29.jpg",
+        "name": "m_photo_K1602"
+      },
+      "filieres": ["Artisanat d'art & design"],
+      "appellations": [
+        "Régisseur / Régisseuse des collections",
+        "Responsable de collections",
+        "Régisseur / Régisseuse des expositions",
+        "Régisseur / Régisseuse d'œuvres",
+        "Historien / Historienne de l'œuvre",
+        "Gestionnaire de collections",
+        "Directeur / Directrice de musée",
+        "Conservateur territorial / Conservatrice territoriale du patrimoine",
+        "Directeur / Directrice de la conservation départementale",
+        "Directeur / Directrice d'établissement patrimonial",
+        "Conservateur / Conservatrice du patrimoine",
+        "Conservateur / Conservatrice du patrimoine historique",
+        "Conservateur départemental / Conservatrice départementale du patrimoine",
+        "Conservateur / Conservatrice des collections",
+        "Conservateur directeur / Conservatrice directrice de musée",
+        "Conservateur / Conservatrice des antiquités et objets d'art",
+        "Commissaire d'expositions",
+        "Conservateur / Conservatrice de musée",
+        "Attaché / Attachée de conservation du patrimoine",
+        "Chargé / Chargée d'études et d'inventaire patrimoine",
+        "Conservateur / Conservatrice d'établissement patrimonial"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Tu supervises les collections",
+          "description": "Tu assures la conservation préventive et curative des œuvres, contrôles leur état et organises leur restauration si nécessaire"
+        },
+        {
+          "titre": "Tu conçois des expositions",
+          "description": "Tu élabores des projets culturels, sélectionnes les œuvres à présenter et coordonnes leur mise en valeur auprès du public"
+        },
+        {
+          "titre": "Tu gères une équipe",
+          "description": "Tu encadres et animes le personnel scientifique et technique, répartis les missions et veilles au bon fonctionnement du service"
+        },
+        {
+          "titre": "Tu enrichis les collections",
+          "description": "Tu recherches de nouvelles acquisitions, études leur authenticité et leur intérêt patrimonial, et négocies leur acquisition"
+        },
+        {
+          "titre": "Tu développes la médiation culturelle",
+          "description": "Tu conçois des actions pédagogiques, accueilles des publics variés et transmets tes connaissances lors de visites ou conférences"
+        },
+        {
+          "titre": "Tu administres le budget",
+          "description": "Tu élabores et suis le budget de ton service, recherches des financements et des partenariats pour soutenir tes projets"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement dans des musées, des monuments historiques, des archives ou des bibliothèques patrimoniales. Ton environnement allie bureaux pour la gestion administrative, réserves pour la conservation des collections et espaces d'exposition pour la médiation. Tu collabores avec des équipes pluridisciplinaires et des partenaires culturels variés.",
+        "statuts": "Tu es généralement fonctionnaire de catégorie A de la fonction publique d'État ou territoriale, recruté sur concours après un master. Le métier est accessible via le concours de conservateur du patrimoine de l'État ou territorial. Des postes contractuels existent également dans certaines structures privées ou fondations.",
+        "opportunites": "Les débouchés sont principalement dans les musées nationaux ou territoriaux, les services d'archives, les monuments historiques et les bibliothèques patrimoniales. Tu peux évoluer vers des postes de direction d'établissement culturel, de responsable de département ou d'inspecteur du patrimoine. La mobilité géographique favorise les évolutions de carrière.",
+        "notes": "Le métier nécessite un très haut niveau de qualification (Bac+5 minimum) et la réussite à un concours sélectif. La passion pour le patrimoine est essentielle car le métier demande un engagement fort. Les horaires peuvent être irréguliers lors d'événements culturels. La dimension administrative et budgétaire est importante et ne se limite pas à l'expertise scientifique des collections."
+      },
+      "centresInterets": [
+        {
+          "titre": "Aimer la culture et le patrimoine",
+          "description": "Être passionné par l'histoire, l'art et la préservation des témoignages du passé pour les transmettre aux générations futures"
+        },
+        {
+          "titre": "Avoir le sens de l'organisation",
+          "description": "Être capable de gérer simultanément plusieurs projets, coordonner des équipes et piloter des budgets avec rigueur et méthode"
+        },
+        {
+          "titre": "Apprécier le contact avec le public",
+          "description": "Aimer transmettre ses connaissances, sensibiliser différents publics et créer du lien entre les collections et les visiteurs"
+        },
+        {
+          "titre": "Être créatif et communicant",
+          "description": "Savoir imaginer des actions innovantes de mise en valeur du patrimoine et concevoir des supports de communication attractifs"
+        },
+        {
+          "titre": "Avoir l'esprit d'analyse",
+          "description": "Être minutieux dans l'étude des œuvres, rigoureux dans la documentation et attentif à la conformité des procédures de conservation"
+        }
+      ]
+    },
+    {
+      "titre": "Imprimeur / Imprimeuse textile",
+      "description": "Reproduit, au moyen de machines d'impression textile, des motifs de couleurs sur nappes textiles (tissu, tricot, nontissé, ...) de différentes fibres (coton, soie, viscose, polyester, polyamide, ...). Intervient selon les règles de sécurité et les impératifs de production (optimisation de la matière, qualité, délais, ...).\\nRéalise les diagnostics en cas de non-conformité de l'impression et détermine les ajustements. Peut effectuer la maintenance de premier niveau des équipements.\\nPeut coordonner une équipe d'opérateurs (aide-imprimeur, ...).",
+      "codeRomeMetier": "H2408",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587385333x731544510027006800/103%20-%20steven-roxas-0l-AeBHrTK4-unsplash.jpg",
+        "name": "m_photo_H2408"
+      },
+      "filieres": ["Artisanat d'art & design"],
+      "appellations": [
+        "Imprimeur / Imprimeuse sur cadre plat",
+        "Imprimeur / Imprimeuse textile",
+        "Imprimeur / Imprimeuse sur cadre rotatif",
+        "Imprimeur / Imprimeuse sur étoffes"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Préparer et régler les machines d'impression",
+          "description": "Tu configures les équipements d'impression textile en fonction des commandes, tu charges les encres et tu ajustes les paramètres pour obtenir le rendu souhaité."
+        },
+        {
+          "titre": "Surveiller le processus d'impression",
+          "description": "Tu contrôles en continu le déroulement de l'impression sur les nappes textiles, tu vérifies la qualité des motifs et l'application uniforme des couleurs."
+        },
+        {
+          "titre": "Contrôler la conformité des impressions",
+          "description": "Tu inspectes les textiles imprimés pour détecter les défauts, tu compares le résultat aux standards attendus et tu effectues les diagnostics en cas de problème."
+        },
+        {
+          "titre": "Effectuer la maintenance de premier niveau",
+          "description": "Tu réalises l'entretien courant des machines d'impression, tu nettoies les équipements et tu interviens sur les pannes simples pour assurer la continuité de production."
+        },
+        {
+          "titre": "Optimiser la production",
+          "description": "Tu gères l'utilisation des matières premières pour limiter le gaspillage, tu respectes les délais de fabrication et tu peux coordonner une équipe d'aides-imprimeurs."
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles en atelier industriel ou dans des entreprises d'impression textile, souvent debout près des machines. L'environnement peut être bruyant et nécessite le port d'équipements de protection. Tu es en contact avec des encres et des produits chimiques, ce qui exige le respect strict des normes de sécurité QHSSE.",
+        "statuts": "Tu peux être employé en CDI ou CDD dans des entreprises textiles, des imprimeries spécialisées ou des ateliers de création. Le métier est accessible avec une formation professionnelle de type CAP ou Bac Pro dans les industries graphiques ou textiles. Des évolutions vers des postes de chef d'équipe ou de responsable production sont possibles.",
+        "opportunites": "Le secteur textile recherche des professionnels qualifiés capables de maîtriser les technologies d'impression modernes. Tu peux te spécialiser dans l'impression numérique, la sérigraphie ou les techniques d'ennoblissement textile. Des opportunités existent dans la mode, l'ameublement et les textiles techniques.",
+        "notes": "Ce métier allie savoir-faire technique et sensibilité artistique. Les horaires peuvent être postés selon l'organisation de l'entreprise. La polyvalence est appréciée car tu peux être amené à travailler sur différents types de machines et de supports textiles variés."
+      },
+      "centresInterets": [
+        {
+          "titre": "Avoir le sens du détail et de la précision",
+          "description": "Tu dois être minutieux pour contrôler la qualité des impressions, ajuster les réglages des machines et détecter les non-conformités sur les textiles imprimés."
+        },
+        {
+          "titre": "Apprécier le travail manuel et technique",
+          "description": "Tu aimes manipuler des machines industrielles, effectuer des réglages fins et travailler avec différentes matières textiles comme le coton, la soie ou le polyester."
+        },
+        {
+          "titre": "Aimer les couleurs et les motifs",
+          "description": "Tu as un intérêt pour l'esthétique textile, les harmonies de couleurs et la reproduction fidèle de motifs décoratifs sur différents supports."
+        },
+        {
+          "titre": "Être rigoureux et méthodique",
+          "description": "Tu respectes scrupuleusement les procédures de sécurité, les délais de production et les standards de qualité imposés dans l'industrie textile."
+        }
+      ]
+    },
+    {
+      "titre": "Chef / Cheffe d'équipe et d'atelier textile",
+      "description": "Organise l'activité d'une ou plusieurs équipes d'opérateurs (coupeur, mécanicien en confection, opérateur de blanchisserie, ...) ou de conducteurs de machines (tisserand, bonnetier, ...) de fabrication, de traitement ou de confection de matériaux souples (cuir, textile, ...).\\nEffectue le suivi de la fabrication selon les règles de sécurité, d'hygiène et d'environnement et les impératifs de production.\\nOrganise et effectue le suivi de l'approvisionnement de l'atelier et apporte un appui technique aux opérateurs ou conducteurs.\\nPeut superviser le fonctionnement des équipements (réglages, diagnostic de dysfonctionnement, maintenance, ...).",
+      "codeRomeMetier": "H2505",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587401958x479215558501290700/104%20-%20sil-group-cAWzxVTynvs-unsplash.jpg",
+        "name": "m_photo_H2505"
+      },
+      "filieres": ["Artisanat d'art & design"],
+      "appellations": [
+        "Responsable d'unité de production cuirs et peaux",
+        "Responsable d'atelier finissage cuir",
+        "Responsable d'atelier de tissage",
+        "Responsable d'atelier de tricotage",
+        "Responsable d'atelier de filature",
+        "Responsable d'atelier de production cuirs et peaux",
+        "Chef d'équipe d'atelier de tricotage",
+        "Chef d'atelier en chaussures",
+        "Chef / Cheffe d'équipe et d'atelier textile",
+        "Chef d'équipe en maroquinerie",
+        "Agent / Agente d'encadrement d'atelier de piquage",
+        "Animateur / Animatrice d'atelier de production textile",
+        "Chef d'équipe des industries des matériaux souples",
+        "Chef d'équipe préparation en chaussures",
+        "Contremaître / Contremaîtresse de teinture textile",
+        "Contremaître / Contremaîtresse tulliste",
+        "Responsable d'atelier d'assemblage-montage en habillement",
+        "Responsable d'atelier d'assemblage-montage en industries des cuirs et peaux et matériaux associés",
+        "Responsable d'atelier d'ennoblissement textile",
+        "Responsable d'atelier de blanchisserie industrielle",
+        "Responsable d'atelier de coupe en industrie des matériaux souples",
+        "Responsable d'atelier de fabrication de produits non-tissés",
+        "Responsable d'atelier de finition des industries des matériaux souples",
+        "Responsable d'atelier de production textile",
+        "Responsable d'équipe de production traitement de linge",
+        "Responsable de groupe de machines textiles",
+        "Responsable de ligne de fabrication textile"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Organiser la production",
+          "description": "Tu planifies le travail des équipes, répartis les tâches et établis les programmes de production en fonction des commandes et des délais."
+        },
+        {
+          "titre": "Superviser les opérations",
+          "description": "Tu contrôles le bon déroulement de la fabrication, vérifies la qualité des produits et t'assures du respect des normes QHSSE."
+        },
+        {
+          "titre": "Gérer les équipements",
+          "description": "Tu règles et ajustes les machines, diagnostiques les pannes et coordonnes les interventions de maintenance préventive ou corrective."
+        },
+        {
+          "titre": "Encadrer ton équipe",
+          "description": "Tu formes tes collaborateurs, évalues leurs compétences, les accompagnes dans leur montée en compétences et assures la cohésion du groupe."
+        },
+        {
+          "titre": "Optimiser les ressources",
+          "description": "Tu gères l'approvisionnement en matières premières, contrôles leur conformité et optimises l'utilisation des équipements et du temps de travail."
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement en atelier de production textile, blanchisserie industrielle ou usine de confection. L'environnement peut être bruyant avec des machines en fonctionnement constant. Tu alternes entre le bureau pour la planification administrative et l'atelier pour le suivi terrain. Les horaires peuvent être postés (2x8 ou 3x8) selon l'organisation de l'entreprise.",
+        "statuts": "Tu peux être salarié en CDI dans des entreprises de textile, confection, ameublement ou blanchisserie industrielle. Le poste est généralement accessible après une expérience réussie comme opérateur ou technicien textile. Des évolutions vers des postes de responsable de production ou directeur d'atelier sont possibles.",
+        "opportunites": "Le secteur textile français se modernise et recherche des profils qualifiés pour encadrer les équipes. Les opportunités se trouvent dans la mode, le textile technique, l'ameublement et le linge professionnel. La relocalisation de certaines productions en France crée de nouvelles perspectives d'emploi.",
+        "notes": "Ce métier demande une double compétence technique et managériale. La connaissance des matériaux textiles et des procédés de fabrication est indispensable. Des certifications en management de la qualité ou en sécurité peuvent être un plus. Le secteur valorise de plus en plus les démarches éco-responsables et l'innovation technologique."
+      },
+      "centresInterets": [
+        {
+          "titre": "Coordonner et animer une équipe",
+          "description": "Aimer diriger et motiver des collaborateurs, développer leurs compétences et organiser leur travail au quotidien pour atteindre les objectifs de production."
+        },
+        {
+          "titre": "Être rigoureux et organisé",
+          "description": "Apprécier la planification, le suivi méticuleux des processus de fabrication et le respect des normes de qualité, sécurité et environnement."
+        },
+        {
+          "titre": "Résoudre des problèmes techniques",
+          "description": "Aimer analyser les dysfonctionnements machines, diagnostiquer les pannes et apporter des solutions techniques concrètes et rapides."
+        },
+        {
+          "titre": "Travailler dans l'industrie textile",
+          "description": "Se passionner pour les matériaux souples, les procédés de fabrication textile et l'univers de la confection ou du traitement des tissus."
+        }
+      ]
+    },
+    {
+      "titre": "Accessoiriste",
+      "description": "Conçoit et effectue la mise en place des décors et des accessoires pour des spectacles, des tournages, selon les intentions artistiques du metteur en scène, du réalisateur, du chorégraphe, ..., la réglementation sécurité des Etablissements Recevant du Public (ERP) et les impératifs de la production.\\nPeut réaliser des artifices et des effets pyrotechniques.",
+      "codeRomeMetier": "L1503",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587531267x977380682971275000/110%20-%20%C2%A9%20Ville%20de%20Versailles%20%20Marc%20O%20Carion%20%2841%29%20BD.jpg",
+        "name": "m_photo_L1503"
+      },
+      "filieres": ["Artisanat d’art & design"],
+      "appellations": [
+        "Technicien / Technicienne en effets spéciaux",
+        "Scénographe spectacle",
+        "Régisseur / Régisseuse accessoiriste",
+        "Régisseur / Régisseuse de scène",
+        "Décorateur / Décoratrice spectacle",
+        "Ensemblier spectacle / Ensemblière spectacle",
+        "Pyrotechnicien / Pyrotechnicienne",
+        "Régisseur / Régisseuse d'extérieurs",
+        "Décorateur / Décoratrice scénographe spectacle",
+        "Chef constructeur / constructrice en décors",
+        "Chef décorateur / décoratrice spectacle",
+        "Conseiller / Conseillère technique en armes",
+        "Chef accessoiriste",
+        "Assistant décorateur / Assistante décoratrice spectacle",
+        "Assistant / Assistante plateau",
+        "Accessoiriste en effets spéciaux",
+        "Artificier / Artificière spectacle",
+        "Armurier / Armurière spectacle",
+        "Accessoiriste de plateau",
+        "Artificier / Artificière spectacles pyrotechniques",
+        "Accessoiriste"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Tu analyses les besoins artistiques",
+          "description": "Tu études les scripts, rencontres les metteurs en scène et réalisateurs pour comprendre leurs intentions et l'univers du spectacle ou du tournage"
+        },
+        {
+          "titre": "Tu recherches et collectes les accessoires",
+          "description": "Tu chines, achètes, loues ou récupères les objets nécessaires en respectant le budget et les contraintes de production"
+        },
+        {
+          "titre": "Tu fabriques et transformes des objets",
+          "description": "Tu crées de toutes pièces ou modifies des accessoires en atelier en utilisant différentes techniques et matériaux"
+        },
+        {
+          "titre": "Tu installes et agences les décors",
+          "description": "Tu mets en place les accessoires et éléments de décor sur le plateau ou le lieu de tournage selon le plan établi"
+        },
+        {
+          "titre": "Tu assures la maintenance et le suivi",
+          "description": "Tu entretiens, répares et stockes les accessoires entre les représentations ou les prises, en garantissant leur disponibilité et leur état"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement dans les théâtres, studios de cinéma, plateaux de télévision ou sur des lieux de tournage extérieurs. Ton environnement alterne entre l'atelier pour la fabrication et les espaces de spectacle pour l'installation. Les horaires sont irréguliers, avec des périodes intenses lors des montages et des tournages, incluant soirées et week-ends selon les représentations.",
+        "statuts": "Tu peux exercer comme intermittent du spectacle, statut le plus fréquent dans ce secteur, ou être salarié permanent d'une structure culturelle (théâtre national, compagnie). Le travail en free-lance est également possible, notamment pour les accessoiristes expérimentés qui enchaînent les projets.",
+        "opportunites": "Les débouchés se trouvent dans le cinéma, le théâtre, la télévision, l'opéra, les spectacles vivants et l'événementiel. Avec de l'expérience, tu peux évoluer vers chef accessoiriste, décorateur ou régisseur général. La polyvalence et un réseau professionnel solide sont essentiels pour multiplier les opportunités.",
+        "notes": "Ce métier exige une grande capacité d'adaptation et une résistance physique pour les manutentions et installations. Une formation en arts appliqués, décor ou techniques du spectacle est recommandée. La connaissance des normes de sécurité (ERP) et éventuellement des certifications en pyrotechnie peuvent être nécessaires selon les productions. Le réseau et la réputation sont déterminants pour obtenir des contrats."
+      },
+      "centresInterets": [
+        {
+          "titre": "Être créatif et imaginatif",
+          "description": "Concevoir et créer des univers visuels en transformant des idées artistiques en objets concrets et décors immersifs"
+        },
+        {
+          "titre": "Aimer travailler de ses mains",
+          "description": "Fabriquer, assembler et manipuler des matériaux variés pour donner vie aux accessoires et éléments de décor"
+        },
+        {
+          "titre": "Apprécier le travail en équipe",
+          "description": "Collaborer étroitement avec les metteurs en scène, réalisateurs, décorateurs et techniciens pour servir une vision artistique commune"
+        },
+        {
+          "titre": "Être polyvalent et curieux",
+          "description": "Maîtriser des techniques variées allant de la menuiserie à la peinture, en passant par la couture et parfois la pyrotechnie"
+        }
+      ]
+    },
+    {
+      "titre": "Costumier / Costumière",
+      "description": "Fabrique et entretient les costumes (contemporains, historiques, grotesques) pour des spectacles, des tournages selon les impératifs de la production. Habille des interprètes (comédiens, chanteurs, danseurs, ...), des intervenants (présentateurs, animateurs, ...), des mannequins selon la chronologie des tournages, des spectacles, des défilés.\\nPeut concevoir des costumes.\\nPeut coordonner une équipe.",
+      "codeRomeMetier": "L1502",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587515579x714590464392195800/109%20-%20marilia-castelli-CjdQN-oYdjc-unsplash%20%281%29.jpg",
+        "name": "m_photo_L1502"
+      },
+      "filieres": ["Artisanat d'art & design"],
+      "appellations": [
+        "Concepteur / Conceptrice de costumes",
+        "Costumier / Costumière",
+        "Créateur / Créatrice de costumes",
+        "Régisseur / Régisseuse costumes",
+        "Habilleur / Habilleuse",
+        "Costumier-habilleur / Costumière-habilleuse",
+        "Couturier / Couturière spectacle",
+        "Costumier-réalisateur / Costumière-réalisatrice",
+        "Décorateur-costumier / Décoratrice-costumière",
+        "Chef habilleur / habilleuse",
+        "Chef costumier / costumière",
+        "Assistant costumier / Assistante costumière"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Tu crées et confectionnes les costumes",
+          "description": "Tu conçois, patronnes et couds les costumes en respectant l'univers artistique du spectacle ou du tournage et les contraintes de mouvement des artistes"
+        },
+        {
+          "titre": "Tu effectues les essayages et retouches",
+          "description": "Tu ajustes les costumes sur les comédiens, danseurs ou mannequins et réalises les modifications nécessaires pour un rendu parfait"
+        },
+        {
+          "titre": "Tu entretiens et répares la garde-robe",
+          "description": "Tu nettoies, repasses, répares et conserves les costumes tout au long des représentations ou du tournage"
+        },
+        {
+          "titre": "Tu habilles les artistes",
+          "description": "Tu prépares et aides les interprètes à s'habiller en backstage en respectant le timing des entrées en scène ou des prises de vue"
+        },
+        {
+          "titre": "Tu gères le stock de costumes",
+          "description": "Tu organises, répertories et archives les pièces de la garde-robe tout en veillant à leur bon état de conservation"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement dans les théâtres, opéras, studios de télévision, plateaux de cinéma ou maisons de couture. L'environnement varie entre ateliers de création et coulisses. Les horaires sont souvent irréguliers avec des journées longues pendant les tournages ou les représentations. Tu peux être amené à te déplacer selon les productions.",
+        "statuts": "Tu peux exercer comme salarié permanent dans une structure culturelle (théâtre national, opéra), en CDD pour des productions spécifiques, ou comme intermittent du spectacle. Le statut d'artisan indépendant ou auto-entrepreneur est également possible pour les costumiers freelance travaillant sur plusieurs projets simultanément.",
+        "opportunites": "Le métier offre des perspectives dans le spectacle vivant, le cinéma, la télévision, la publicité, les défilés de mode et l'événementiel. Tu peux évoluer vers chef costumier, créateur de costumes ou enseignant. Les compétences acquises permettent aussi de se diriger vers la scénographie ou la direction artistique.",
+        "notes": "La maîtrise de langues étrangères est un atout pour travailler sur des productions internationales. Une bonne condition physique est nécessaire car le métier implique de rester debout longtemps et de porter des charges. La concentration est essentielle lors des habillages rapides en coulisses. Des connaissances en histoire du costume et en histoire de l'art sont précieuses pour la crédibilité des créations."
+      },
+      "centresInterets": [
+        {
+          "titre": "Aimer la création textile et la couture",
+          "description": "Passion pour le travail des tissus, la confection et les techniques de couture complexes avec une attention particulière aux détails et aux finitions"
+        },
+        {
+          "titre": "Avoir le sens artistique et esthétique",
+          "description": "Sensibilité pour les couleurs, les matières, les styles vestimentaires et capacité à traduire visuellement une époque ou un personnage"
+        },
+        {
+          "titre": "Être minutieux et rigoureux",
+          "description": "Précision dans les prises de mesures, les ajustements et le respect des contraintes techniques tout en travaillant dans des délais serrés"
+        },
+        {
+          "titre": "Apprécier le travail en équipe",
+          "description": "Collaboration étroite avec metteurs en scène, réalisateurs, comédiens et autres métiers du spectacle pour donner vie à une vision artistique commune"
+        }
+      ]
+    },
+    {
+      "titre": "Métallier / Métallière",
+      "description": "Réalise les sous-ensembles ou structures de constructions métalliques à partir de poutres, poutrelles, éléments de liaison, selon les règles de sécurité et les impératifs de production (délai, qualité, ...).\\nPeut effectuer sur site la mise en place et le montage final de structures réalisées.\\nPeut coordonner l'activité d'une équipe.",
+      "codeRomeMetier": "H2911",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587452956x353428632070269500/106%20-%20CampusVersailles-Journe%CC%81esduPatrimoine2024-CarolineDauger-120.JPG",
+        "name": "m_photo_H2911"
+      },
+      "filieres": ["Patrimoine bâti"],
+      "appellations": [
+        "Traceur / Traceuse en charpentes métalliques",
+        "Préparateur / Préparatrice en charpentes métalliques",
+        "Ferreur serrurier / Ferreuse serrurière",
+        "Ouvrier / Ouvrière de fabrication de charpentes métalliques",
+        "Métallier préparateur / Métallière préparatrice en charpentes métalliques",
+        "Métallier / Métallière en charpente industrielle",
+        "Charpentier / Charpentière fer",
+        "Charpentier traceur / Charpentière traceuse en charpentes métalliques",
+        "Métallier / Métallière",
+        "Assembleur / Assembleuse en armatures métalliques"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Préparer et découper les éléments métalliques",
+          "description": "Tu découpes, perces et façonnes les pièces métalliques selon les plans techniques fournis en utilisant des machines-outils adaptées"
+        },
+        {
+          "titre": "Assembler et souder les structures",
+          "description": "Tu assembles les différents éléments par soudage, boulonnage ou rivetage pour créer des ensembles métalliques solides et conformes"
+        },
+        {
+          "titre": "Contrôler la qualité de ton travail",
+          "description": "Tu vérifies les dimensions, l'équerrage et la conformité des structures réalisées par rapport aux plans et aux normes de sécurité"
+        },
+        {
+          "titre": "Installer les structures sur chantier",
+          "description": "Tu participes au montage et à l'installation finale des constructions métalliques directement sur les sites de construction"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement en atelier de métallerie avec des déplacements réguliers sur chantiers pour les phases de montage. L'environnement peut être bruyant et nécessite le port d'équipements de protection. Tu manipules des charges lourdes et travailles parfois en hauteur.",
+        "statuts": "Tu peux être salarié dans une entreprise de métallerie, de construction métallique ou de charpente industrielle. Avec de l'expérience, tu peux devenir chef d'équipe, chef d'atelier ou créer ta propre entreprise artisanale.",
+        "opportunites": "Le secteur de la construction métallique offre de bonnes perspectives d'emploi, notamment dans la rénovation et les projets de construction durable. Les métalliers qualifiés sont recherchés et peuvent se spécialiser dans différents domaines : serrurerie, ferronnerie d'art, charpente métallique.",
+        "notes": "Ce métier demande une bonne condition physique et une attention constante aux règles de sécurité. La maîtrise de la lecture de plans techniques est indispensable. Les formations en CAP, Bac Pro ou BTS permettent d'accéder à ce métier et d'évoluer vers plus de responsabilités."
+      },
+      "centresInterets": [
+        {
+          "titre": "Travailler la matière avec précision",
+          "description": "Être passionné par le travail des métaux et apprécier la transformation de matériaux bruts en structures solides et durables"
+        },
+        {
+          "titre": "Exercer un métier technique et manuel",
+          "description": "Aimer utiliser des outils et machines spécialisés, maîtriser les techniques de soudage, d'assemblage et de fabrication métallique"
+        },
+        {
+          "titre": "Résoudre des problèmes concrets",
+          "description": "Apprécier l'aspect pratique du métier en trouvant des solutions techniques adaptées à chaque projet de construction métallique"
+        },
+        {
+          "titre": "Travailler en équipe sur des projets d'envergure",
+          "description": "Aimer collaborer avec d'autres professionnels du bâtiment et participer à la réalisation de structures imposantes"
+        }
+      ]
+    },
+    {
+      "titre": "Maquilleur / Maquilleuse spectacle",
+      "description": "Conçoit et réalise les coiffures, les maquillages de chanteurs, comédiens, mannequins, présentateurs TV, journalistes, ... pour des spectacles, des défilés, des tournages, selon les impératifs de la production (programmation, budgets, ...), de diffusion des collections (prêt-à-porter, haute couture, ...) et la planification de campagnes publicitaires.\\nPeut réaliser des effets spéciaux de maquillage et confectionner des postiches (perruques, moustaches, ...).\\nPeut coordonner une équipe.",
+      "codeRomeMetier": "L1501",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587491475x336273123209617660/108%20-%20rhamely-u88INhZV4ok-unsplash.jpg",
+        "name": "m_photo_L1501"
+      },
+      "filieres": ["Artisanat d'art & design"],
+      "appellations": [
+        "Perruquier-coiffeur / Perruquière-coiffeuse spectacle",
+        "Maquilleur-posticheur / Maquilleuse-posticheuse spectacle",
+        "Perruquier-maquilleur / Perruquière-maquilleuse spectacle",
+        "Perruquier / Perruquière spectacle",
+        "Posticheur / Posticheuse spectacle",
+        "Maquilleur-coiffeur perruquier / Maquilleuse-coiffeuse perruquière spectacle",
+        "Maquilleur coiffeur / Maquilleuse coiffeuse spectacle",
+        "Coiffeur-posticheur / Coiffeuse-posticheuse spectacle",
+        "Coiffeur maquilleur / Coiffeuse maquilleuse spectacle",
+        "Coiffeur / Coiffeuse spectacle",
+        "Maquilleur / Maquilleuse effets spéciaux",
+        "Implanteur-perruquier / Implanteuse-perruquière spectacle",
+        "Concepteur / Conceptrice maquillages spectacle",
+        "Concepteur / Conceptrice coiffures spectacle",
+        "Chef posticheur / posticheuse spectacle",
+        "Coiffeur-perruquier / Coiffeuse-perruquière spectacle",
+        "Maquilleur / Maquilleuse spectacle",
+        "Assistant perruquier / Assistante perruquière spectacle",
+        "Chef coiffeur perruquier / coiffeuse perruquière spectacle",
+        "Chef coiffeur / coiffeuse spectacle",
+        "Assistant maquilleur coiffeur perruquier / Assistante maquilleuse coiffeuse perruquière spectacle",
+        "Chef maquilleur posticheur / maquilleuse posticheuse spectacle",
+        "Chef maquilleur / maquilleuse spectacle",
+        "Assistant maquilleur / Assistante maquilleuse spectacle",
+        "Chef coiffeur maquilleur / coiffeuse maquilleuse spectacle",
+        "Chef perruquier / perruquière spectacle",
+        "Chef perruquier maquilleur / perruquière maquilleuse spectacle",
+        "Assistant coiffeur / Assistante coiffeuse spectacle"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Tu prépares les artistes",
+          "description": "Tu analyses les besoins du projet, consultes les fiches personnages et prépares les produits et matériaux nécessaires au maquillage"
+        },
+        {
+          "titre": "Tu réalises le maquillage",
+          "description": "Tu appliques le maquillage selon les directives artistiques, en tenant compte de l'éclairage, des caméras et de la durée du spectacle"
+        },
+        {
+          "titre": "Tu retouches pendant la production",
+          "description": "Tu assures les retouches entre les scènes ou prises, vérifiant constamment le rendu et la tenue du maquillage"
+        },
+        {
+          "titre": "Tu entretiens ton matériel",
+          "description": "Tu nettoies et désinfectes tes outils, gères ton stock de produits et maintiens ton espace de travail aux normes d'hygiène"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles dans des environnements variés et stimulants : plateaux de télévision, théâtres, studios de cinéma, défilés de mode ou loges. Ton emploi du temps est souvent irrégulier avec des horaires décalés, des soirées et weekends selon les productions. Tu collabores étroitement avec les réalisateurs, costumiers et éclairagistes dans une ambiance créative et parfois sous pression.",
+        "statuts": "Tu peux exercer comme intermittent du spectacle, salarié dans une production audiovisuelle, ou indépendant en cumulant plusieurs contrats. Certains maquilleurs sont rattachés à des compagnies théâtrales ou chaînes de télévision en CDI. Le statut d'auto-entrepreneur est également courant pour diversifier les projets.",
+        "opportunites": "Le métier offre des perspectives d'évolution vers chef maquilleur coordonnant une équipe, spécialisation dans les effets spéciaux ou prothèses, ou encore consultant pour les grandes productions. Tu peux aussi te diriger vers la formation ou créer ta propre entreprise. Les débouchés existent dans l'audiovisuel, le cinéma, la mode, l'événementiel et la publicité.",
+        "notes": "Une formation spécialisée est indispensable, souvent complétée par des stages en production. Le réseau professionnel est crucial pour décrocher des contrats. Il faut investir dans un kit professionnel de qualité et se tenir constamment informé des nouvelles techniques et produits. La polyvalence et la capacité à travailler sur différents types de productions sont des atouts majeurs pour pérenniser son activité."
+      },
+      "centresInterets": [
+        {
+          "titre": "Être créatif et artistique",
+          "description": "Avoir le sens de l'esthétique et savoir transformer un visage selon une vision artistique ou un concept de production"
+        },
+        {
+          "titre": "Aimer le contact humain",
+          "description": "Apprécier travailler au plus près des personnes, les mettre en confiance et créer une relation de collaboration avec les artistes"
+        },
+        {
+          "titre": "Être minutieux et précis",
+          "description": "Avoir la capacité de réaliser des détails fins, maîtriser les techniques de maquillage et respecter les contraintes de rendu visuel"
+        },
+        {
+          "titre": "S'adapter rapidement",
+          "description": "Savoir gérer le stress, travailler dans l'urgence et s'ajuster aux imprévus des tournages ou spectacles"
+        }
+      ]
+    },
+    {
+      "titre": "Animateur / Animatrice 3D - films d'animation",
+      "description": "Crée tout ou partie des éléments graphiques et visuels d'un film d'animation ou d'un \"live-action film\" (court ou long métrage, série, programme court, ...) destiné à la télévision, au cinéma, à internet, ...\\nPeut réaliser des effets spéciaux VFX - Visual effects en 3D.\\nPeut coordonner une équipe.\\nPeut superviser une phase de la chaîne de création d'un film d'animation (pré-production, production ou postproduction).",
+      "codeRomeMetier": "L1510",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587553972x986239747100488700/111%20-%20ofspace-llc-ZT0q7xYJk30-unsplash.jpg",
+        "name": "m_photo_L1510"
+      },
+      "filieres": ["Artisanat d’art & design"],
+      "appellations": [
+        "Technicien / Technicienne en capture de mouvement (Motion capture) - films d'animation",
+        "Technicien / Technicienne setuper 3D - films d'animation",
+        "Technicien / Technicienne trace colorisation - films d'animation",
+        "Technicien / Technicienne feuille d'exposition - films d'animation",
+        "Technicien / Technicienne scan - films d'animation",
+        "Technicien / Technicienne compositing - films d'animation",
+        "Modélisateur / Modélisatrice 3D - films d'animation",
+        "Stéréographe 3D - films d'animation",
+        "Infographiste rendu et éclairage - films d'animation",
+        "Opérateur / Opératrice compositing - films d'animation",
+        "Infographiste modélisation - films d'animation",
+        "Plasticien / Plasticienne volume - films d'animation",
+        "Layout man / woman - films d'animation",
+        "Motion designer - films d'animation",
+        "Story boarder - films d'animation",
+        "Infographiste effets visuels numériques - films d'animation",
+        "Animateur / Animatrice 2D - films d'animation",
+        "Animateur / Animatrice volume - films d'animation",
+        "Graphiste dessinateur / dessinatrice - films d'animation",
+        "Décorateur / Décoratrice volume - films d'animation",
+        "Animateur / Animatrice 3D - films d'animation",
+        "Infographiste effets spéciaux - films d'animation",
+        "Animateur / Animatrice 2D 3D - films d'animation"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Modéliser des personnages et décors",
+          "description": "Tu crées en 3D les éléments visuels du film selon les concepts artistiques définis en pré-production"
+        },
+        {
+          "titre": "Animer les mouvements",
+          "description": "Tu donnes vie aux personnages et objets en créant des séquences d'animation fluides et réalistes"
+        },
+        {
+          "titre": "Intégrer les effets visuels",
+          "description": "Tu réalises des effets spéciaux en 3D pour enrichir les scènes et créer des ambiances particulières"
+        },
+        {
+          "titre": "Collaborer avec l'équipe",
+          "description": "Tu échanges régulièrement avec le réalisateur et les autres membres de l'équipe pour respecter la vision artistique du projet"
+        },
+        {
+          "titre": "Effectuer des ajustements techniques",
+          "description": "Tu corriges et optimises tes créations selon les retours et les contraintes de production"
+        },
+        {
+          "titre": "Respecter les délais de livraison",
+          "description": "Tu organises ton travail pour produire les séquences dans les temps impartis par le planning de production"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement en studio d'animation, en agence de production audiovisuelle ou en freelance. L'environnement est créatif et collaboratif, avec des projets variés allant du cinéma à la publicité en passant par les séries et les jeux vidéo. Le travail s'effectue sur ordinateur avec des logiciels spécialisés.",
+        "statuts": "Tu peux être salarié en CDI ou CDD dans un studio, ou exercer en tant qu'intermittent du spectacle selon les projets. Le statut de freelance est également très répandu dans ce secteur, offrant plus de flexibilité et de diversité dans les missions.",
+        "opportunites": "Le secteur de l'animation 3D est en forte croissance avec la multiplication des contenus audiovisuels. Tu peux évoluer vers des postes de superviseur d'animation, directeur technique ou réalisateur. Des opportunités existent aussi bien en France qu'à l'international, notamment dans les grands studios d'animation.",
+        "notes": "Ce métier demande une formation spécialisée en animation 3D et une mise à jour constante des compétences techniques. Les horaires peuvent être intenses en période de production avec des délais serrés. Un book ou une démoreel de qualité est indispensable pour décrocher des missions."
+      },
+      "centresInterets": [
+        {
+          "titre": "Maîtriser les logiciels 3D",
+          "description": "Être passionné par les outils de création numérique comme Maya, Blender ou 3ds Max et aimer se perfectionner constamment dans leur utilisation"
+        },
+        {
+          "titre": "Avoir le sens artistique",
+          "description": "Apprécier l'esthétisme visuel, comprendre les volumes, les lumières et les mouvements pour donner vie aux personnages et aux décors"
+        },
+        {
+          "titre": "Travailler en équipe",
+          "description": "Aimer collaborer avec des réalisateurs, storyboarders, riggers et autres animateurs dans un processus créatif collectif"
+        },
+        {
+          "titre": "Être patient et minutieux",
+          "description": "Accepter de passer de longues heures sur des détails techniques et artistiques pour atteindre le résultat souhaité"
+        },
+        {
+          "titre": "Suivre les évolutions technologiques",
+          "description": "Être curieux des nouvelles techniques d'animation, des effets visuels innovants et des tendances du secteur audiovisuel"
+        }
+      ]
+    },
+    {
+      "titre": "Modeleur / Modeleuse",
+      "description": "Réalise des outillages non métalliques (modèles, matrice, moules, ...) destinés aux industries de moulage (fonderie, céramique, plasturgie, ...), selon les règles de sécurité et les impératifs de production (qualité, délais, ...).\\nPeut créer des modèles originaux, réaliser des moules de série et effectuer des essais de moules.\\nPeut coordonner une équipe.",
+      "codeRomeMetier": "H2908",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587430481x175892046379466430/105%20-%20annie-spratt-TywjkDHf0Ps-unsplash.jpg",
+        "name": "m_photo_H2908"
+      },
+      "filieres": ["Artisanat d'art & design"],
+      "appellations": [
+        "Technicien modeleur / Technicienne modeleuse",
+        "Mouliste en céramique",
+        "Noyauteur / Noyauteuse main sur matériaux non métalliques",
+        "Modeleur traditionnel / Modeleuse traditionnelle en céramique",
+        "Modeleur / Modeleuse technique",
+        "Modeleur traditionnel / Modeleuse traditionnelle",
+        "Mouliste en matériaux non métalliques",
+        "Mouliste en matériaux composites",
+        "Modeleur / Modeleuse sur plâtre",
+        "Modeleur / Modeleuse sur matériaux non métalliques",
+        "Noyauteur / Noyauteuse en céramique",
+        "Modeleur / Modeleuse matières plastiques",
+        "Modeleur / Modeleuse résine",
+        "Modeleur / Modeleuse plaquiste",
+        "Modeleur / Modeleuse mouliste",
+        "Modeleur / Modeleuse en céramique",
+        "Modeleur / Modeleuse",
+        "Modeleur / Modeleuse céramiste",
+        "Matriceur / Matriceuse en céramique",
+        "Modeleur / Modeleuse bois",
+        "Modeleur / Modeleuse en fonderie",
+        "Maquettiste modeleur / modeleuse",
+        "Chef d'atelier de modelage"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Préparer les matériaux et les outils",
+          "description": "Tu sélectionnes et prépares les matières premières nécessaires, tu organises ton poste de travail et tu règles les machines selon les spécifications du projet."
+        },
+        {
+          "titre": "Fabriquer les modèles et moules",
+          "description": "Tu réalises des outillages en suivant les plans techniques, tu façonnes les pièces avec précision et tu effectues les assemblages nécessaires."
+        },
+        {
+          "titre": "Contrôler la conformité des pièces",
+          "description": "Tu vérifies les dimensions, la qualité des surfaces et la conformité de tes réalisations par rapport aux exigences du cahier des charges."
+        },
+        {
+          "titre": "Entretenir et régler les équipements",
+          "description": "Tu assures la maintenance préventive de tes machines, tu effectues les réglages nécessaires et tu résous les incidents techniques mineurs."
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement en atelier dans des entreprises de fonderie, de plasturgie ou de céramique. L'environnement peut être bruyant et nécessite le port d'équipements de protection. Tu alternes entre travail sur machines et interventions manuelles de précision.",
+        "statuts": "Tu peux être employé en CDI dans des entreprises industrielles, travailler comme artisan indépendant ou intégrer des PME spécialisées dans la fabrication de moules et d'outillages sur mesure.",
+        "opportunites": "Le métier offre des perspectives d'évolution vers des postes de chef d'atelier, responsable outillage ou technicien spécialisé. Tu peux également te former aux nouvelles technologies comme l'impression 3D et la conception assistée par ordinateur pour élargir tes compétences.",
+        "notes": "Ce métier demande une formation technique spécialisée et combine savoir-faire traditionnel et technologies modernes. La capacité à lire des plans techniques et la précision sont essentielles. Les secteurs automobile, aéronautique et de l'emballage recherchent régulièrement ces compétences."
+      },
+      "centresInterets": [
+        {
+          "titre": "Travailler de ses mains avec précision",
+          "description": "Tu aimes fabriquer et façonner des objets avec minutie, en utilisant différents matériaux et outils pour créer des pièces uniques ou des moules complexes."
+        },
+        {
+          "titre": "Maîtriser les techniques de fabrication",
+          "description": "Tu apprécies apprendre et perfectionner des méthodes de travail variées, du moulage traditionnel aux technologies modernes de production."
+        },
+        {
+          "titre": "Résoudre des problèmes techniques",
+          "description": "Tu aimes analyser les plans, anticiper les difficultés de réalisation et trouver des solutions créatives pour obtenir des résultats conformes aux attentes."
+        },
+        {
+          "titre": "Être rigoureux et méthodique",
+          "description": "Tu apprécies suivre des procédures précises, contrôler la qualité de ton travail et respecter les normes de sécurité dans toutes tes réalisations."
+        }
+      ]
+    },
+    {
+      "titre": "Agent / Agente d'accueil",
+      "description": "Accueille, renseigne et oriente des personnes à l'espace de réception (gare, entreprise, ...) ou au standard téléphonique de la structure et délivre des laissez-passer, badges, billets, invitations, ...\\nPeut réaliser la gestion du courrier (collecte, distribution, ...), des tâches administratives simples (classement, saisie informatique, saisie de courriers préétablis ...).\\nPeut coordonner une équipe.",
+      "codeRomeMetier": "M1601",
+      "photo": {
+        "url": "https://b5e6c5ba059afb15fcedeff1d965c6b6.cdn.bubble.io/f1729587575999x787073831510600300/112%20-%20%C2%A9Didier%20Saulnier%20-7256.jpg",
+        "name": "m_photo_M1601"
+      },
+      "filieres": ["Accueil & Tourisme"],
+      "appellations": [
+        "Standardiste bilingue",
+        "Steward / Hôtesse au sol",
+        "Hôte / Hôtesse d'accueil bilingue",
+        "Hôte / Hôtesse d'accueil",
+        "Hôte / Hôtesse d'accueil standardiste",
+        "Standardiste",
+        "Hôte / Hôtesse d'accueil standardiste bilingue",
+        "Chargé / Chargée d'accueil",
+        "Employé / Employée d'accueil",
+        "Hôte / Hôtesse",
+        "Agent / Agente d'information",
+        "Chef hôte / hôtesse d'accueil",
+        "Agent / Agente d'accueil"
+      ],
+      "tachesQuotidiennes": [
+        {
+          "titre": "Accueillir les visiteurs",
+          "description": "Tu reçois et identifies les personnes qui se présentent à l'accueil, tu les salues chaleureusement et tu recueilles leur demande avec attention"
+        },
+        {
+          "titre": "Renseigner et orienter",
+          "description": "Tu fournis les informations demandées, tu diriges les visiteurs vers le bon interlocuteur ou service, et tu remets les badges ou documents nécessaires"
+        },
+        {
+          "titre": "Gérer le standard téléphonique",
+          "description": "Tu réponds aux appels entrants, tu filtres et transfères les communications vers les services concernés tout en prenant des messages si nécessaire"
+        },
+        {
+          "titre": "Traiter le courrier et les tâches administratives",
+          "description": "Tu réceptionnes, tries et distribues le courrier, tu effectues des saisies informatiques et tu assures le classement des documents"
+        },
+        {
+          "titre": "Veiller à la sécurité",
+          "description": "Tu contrôles les accès, tu délivres les laissez-passer selon les procédures établies et tu signales toute anomalie à ta hiérarchie"
+        }
+      ],
+      "pourquoi": {
+        "environnementTravail": "Tu travailles principalement en intérieur, à un poste fixe situé à l'entrée d'entreprises, d'administrations, d'établissements publics, de gares ou d'hôtels. Ton espace de travail est généralement équipé d'outils informatiques et téléphoniques. Tu es souvent la première personne que rencontrent les visiteurs, ce qui confère à ton poste une forte visibilité et une responsabilité dans l'image de la structure.",
+        "statuts": "Tu peux exercer sous différents statuts : salarié en CDI ou CDD dans le secteur privé ou public, intérimaire via des agences spécialisées dans l'accueil, ou agent contractuel dans la fonction publique. Les horaires peuvent être réguliers en journée ou postés selon les besoins de la structure (amplitude horaire élargie, week-ends dans certains secteurs).",
+        "opportunites": "Ce métier offre de nombreuses opportunités d'évolution : tu peux te spécialiser dans l'accueil événementiel, évoluer vers des fonctions de chef d'équipe d'accueil, ou te diriger vers des postes administratifs plus qualifiés. Les compétences acquises (relation client, gestion administrative) sont également transférables vers d'autres métiers tertiaires comme assistant administratif ou chargé de clientèle.",
+        "notes": "Le métier d'agent d'accueil est accessible avec un niveau CAP/BEP ou Bac, notamment via des formations en accueil, tourisme ou secrétariat. La maîtrise d'une ou plusieurs langues étrangères est un atout majeur, particulièrement dans les secteurs touristiques et internationaux. Une présentation soignée et une excellente élocution sont essentielles. Le métier demande de la patience et de la diplomatie pour gérer les situations parfois tendues."
+      },
+      "centresInterets": [
+        {
+          "titre": "Aimer le contact humain",
+          "description": "Apprécier les échanges quotidiens avec des personnes variées, être à l'écoute et faire preuve d'empathie pour comprendre et répondre aux besoins des visiteurs"
+        },
+        {
+          "titre": "Être organisé et réactif",
+          "description": "Savoir gérer plusieurs tâches simultanément, prioriser les demandes et s'adapter rapidement aux situations imprévues tout en gardant son calme"
+        },
+        {
+          "titre": "Avoir le sens du service",
+          "description": "Prendre plaisir à rendre service, orienter efficacement les personnes et veiller à ce que chaque visiteur reparte satisfait de son accueil"
+        },
+        {
+          "titre": "Apprécier la communication",
+          "description": "Aimer transmettre des informations claires, maîtriser les outils de communication téléphonique et numérique, et savoir s'exprimer avec courtoisie"
+        }
+      ]
+    }
+  ]
+}

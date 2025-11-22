@@ -71,6 +71,11 @@
         "videos",
         "audios"
       ]
+    },
+    "filieres": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::filiere.filiere"
     }
   }
 }
