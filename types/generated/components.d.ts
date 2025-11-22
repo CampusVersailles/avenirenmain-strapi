@@ -40,6 +40,18 @@ export interface SharedMetierProche extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedOrigine extends Struct.ComponentSchema {
+  collectionName: 'components_shared_origines';
+  info: {
+    displayName: 'Origine';
+  };
+  attributes: {
+    detailsOrigine: Schema.Attribute.String;
+    typeOrigine: Schema.Attribute.Enumeration<['Manuel', 'API', 'Systeme']> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SharedPourquoiMetier extends Struct.ComponentSchema {
   collectionName: 'components_shared_pourquoi_metiers';
   info: {
@@ -91,6 +103,7 @@ declare module '@strapi/strapi' {
       'shared.adresse': SharedAdresse;
       'shared.appellation': SharedAppellation;
       'shared.metier-proche': SharedMetierProche;
+      'shared.origine': SharedOrigine;
       'shared.pourquoi-metier': SharedPourquoiMetier;
       'shared.rome-code': SharedRomeCode;
       'shared.salaire': SharedSalaire;

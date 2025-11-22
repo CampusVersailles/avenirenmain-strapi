@@ -556,6 +556,7 @@ export interface ApiFormationFormation extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nomEtablissement: Schema.Attribute.String;
+    origine: Schema.Attribute.Component<'shared.origine', false>;
     publishedAt: Schema.Attribute.DateTime;
     romeCodeMetiers: Schema.Attribute.Component<'shared.rome-code', true>;
     siteWeb: Schema.Attribute.String;
