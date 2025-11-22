@@ -592,6 +592,13 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
       'api::metier.metier'
     > &
       Schema.Attribute.Private;
+    mediaPrincipal: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    mediaSecondaire: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     metiersProches: Schema.Attribute.Component<'shared.metier-proche', true>;
     pourquoi: Schema.Attribute.Component<'shared.pourquoi-metier', false>;
     publishedAt: Schema.Attribute.DateTime;

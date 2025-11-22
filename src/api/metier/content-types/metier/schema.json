@@ -51,6 +51,26 @@
       "type": "component",
       "component": "shared.rome-code",
       "repeatable": false
+    },
+    "mediaPrincipal": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "mediaSecondaire": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   }
 }
