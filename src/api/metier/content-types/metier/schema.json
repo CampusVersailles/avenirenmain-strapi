@@ -74,8 +74,9 @@
     },
     "filieres": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::filiere.filiere"
+      "relation": "manyToMany",
+      "target": "api::filiere.filiere",
+      "mappedBy": "metiers"
     }
   }
 }
