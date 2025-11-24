@@ -238,26 +238,43 @@
       },
       "romeCode_GrandDomaines": ["B", "D", "E", "H", "K"],
       "domaines_professionnels": [
-        "L15",
-        "K16",
-        "H29",
-        "H25",
-        "H24",
-        "H22",
-        "E12",
-        "E11",
-        "D12",
-        "B18",
-        "B16",
-        "B15",
-        "B14",
-        "B13",
-        "B12",
-        "B11",
-        "H12",
-        "H28",
-        "H34",
-        "ALL"
+        { "label": "Techniciens du spectacle", "value": "L15" },
+        { "label": "Culture et gestion documentaire", "value": "K16" },
+        {
+          "label": "Mécanique, travail des métaux et outillage",
+          "value": "H29"
+        },
+        {
+          "label": "Direction, encadrement et pilotage de fabrication et production industrielles",
+          "value": "H25"
+        },
+        { "label": "Cuir et textile", "value": "H24" },
+        { "label": "Bois", "value": "H22" },
+        { "label": "Images et sons", "value": "E12" },
+        { "label": "Edition et communication", "value": "E11" },
+        {
+          "label": "Commerce non alimentaire et de prestations de confort",
+          "value": "D12"
+        },
+        { "label": "Tissu et cuirs", "value": "B18" },
+        { "label": "Métal, verre, bijouterie et horlogerie", "value": "B16" },
+        { "label": "Instruments de musique", "value": "B15" },
+        { "label": "Fibres et papier", "value": "B14" },
+        { "label": "Décoration", "value": "B13" },
+        { "label": "Céramique", "value": "B12" },
+        { "label": "Arts plastiques", "value": "B11" },
+        {
+          "label": "Conception, recherche, études et développement",
+          "value": "H12"
+        },
+        {
+          "label": "Matériaux de construction, céramique et verre",
+          "value": "H28"
+        },
+        {
+          "label": "Traitements thermiques et traitements de surfaces",
+          "value": "H34"
+        }
       ]
     },
     {
@@ -277,7 +294,13 @@
         "name": "f_icone_horticulture_paysage"
       },
       "romeCode_GrandDomaines": ["A", "D", "F"],
-      "domaines_professionnels": ["F17", "D12", "A14", "A13", "A12"]
+      "domaines_professionnels": [
+        { "label": "Travaux et gros oeuvre", "value": "F17" },
+        { "label": "Commerce non alimentaire et de prestations de confort", "value": "D12" },
+        { "label": "Production", "value": "A14" },
+        { "label": "Etudes et assistance technique", "value": "A13" },
+        { "label": "Espaces naturels et espaces verts", "value": "A12" }
+      ]
     },
     {
       "nom": "Accueil & Tourisme",
@@ -297,20 +320,20 @@
       },
       "romeCode_GrandDomaines": ["G", "E", "M"],
       "domaines_professionnels": [
-        "M16",
-        "G17",
-        "G16",
-        "G15",
-        "G14",
-        "G13",
-        "G12",
-        "G11",
-        "E11",
-        "D14",
-        "I15",
-        "M17",
-        "N21",
-        "N22"
+        { "label": "Secrétariat et assistance", "value": "M16" },
+        { "label": "Accueil en hôtellerie", "value": "G17" },
+        { "label": "Production culinaire", "value": "G16" },
+        { "label": "Personnel d'étage en hôtellerie", "value": "G15" },
+        { "label": "Gestion et direction", "value": "G14" },
+        { "label": "Conception, commercialisation et vente de produits touristiques", "value": "G13" },
+        { "label": "Animation d'activités de loisirs", "value": "G12" },
+        { "label": "Accueil et promotion touristique", "value": "G11" },
+        { "label": "Edition et communication", "value": "E11" },
+        { "label": "Force de vente", "value": "D14" },
+        { "label": "Travaux d'accès difficile", "value": "I15" },
+        { "label": "Stratégie commerciale, marketing et supervision des ventes", "value": "M17" },
+        { "label": "Personnel navigant du transport aérien", "value": "N21" },
+        { "label": "Personnel sédentaire du transport aérien", "value": "N22" }
       ]
     },
     {
@@ -331,15 +354,15 @@
       },
       "romeCode_GrandDomaines": ["F", "H"],
       "domaines_professionnels": [
-        "H29",
-        "H22",
-        "F17",
-        "F16",
-        "F15",
-        "F12",
-        "F11",
-        "I11",
-        "I15"
+        { "label": "Mécanique, travail des métaux et outillage", "value": "H29" },
+        { "label": "Bois", "value": "H22" },
+        { "label": "Travaux et gros oeuvre", "value": "F17" },
+        { "label": "Second oeuvre", "value": "F16" },
+        { "label": "Montage de structures", "value": "F15" },
+        { "label": "Conduite et encadrement de chantier - travaux", "value": "F12" },
+        { "label": "Conception et études", "value": "F11" },
+        { "label": "Encadrement", "value": "I11" },
+        { "label": "Travaux d'accès difficile", "value": "I15" }
       ]
     },
     {
@@ -359,7 +382,14 @@
         "name": "f_icone_gastronomie"
       },
       "romeCode_GrandDomaines": ["G", "A", "D"],
-      "domaines_professionnels": ["G18", "G16", "G15", "G14", "D11", "A14"]
+      "domaines_professionnels": [
+        { "label": "Service", "value": "G18" },
+        { "label": "Production culinaire", "value": "G16" },
+        { "label": "Personnel d'étage en hôtellerie", "value": "G15" },
+        { "label": "Gestion et direction", "value": "G14" },
+        { "label": "Commerce alimentaire et métiers de bouche", "value": "D11" },
+        { "label": "Production", "value": "A14" }
+      ]
     }
   ]
 }
