@@ -75,6 +75,17 @@ export interface SharedRomeCode extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedRomeDomainePro extends Struct.ComponentSchema {
+  collectionName: 'components_shared_rome_domaine_pros';
+  info: {
+    displayName: 'RomeDomainePro';
+  };
+  attributes: {
+    code: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSalaire extends Struct.ComponentSchema {
   collectionName: 'components_shared_salaires';
   info: {
@@ -106,6 +117,7 @@ declare module '@strapi/strapi' {
       'shared.origine': SharedOrigine;
       'shared.pourquoi-metier': SharedPourquoiMetier;
       'shared.rome-code': SharedRomeCode;
+      'shared.rome-domaine-pro': SharedRomeDomainePro;
       'shared.salaire': SharedSalaire;
       'shared.titre-et-description': SharedTitreEtDescription;
     }

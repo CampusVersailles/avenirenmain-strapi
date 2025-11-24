@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_rome_domaine_pros",
+  "info": {
+    "displayName": "RomeDomainePro"
+  },
+  "options": {},
+  "attributes": {
+    "code": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -52,6 +52,17 @@
     },
     "romeCode_GrandDomaines": {
       "type": "json"
+    },
+    "metiers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::metier.metier",
+      "inversedBy": "filieres"
+    },
+    "domainesPro": {
+      "type": "component",
+      "component": "shared.rome-domaine-pro",
+      "repeatable": true
     }
   }
 }

@@ -445,6 +445,7 @@ export interface ApiFiliereFiliere extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    domainesPro: Schema.Attribute.Component<'shared.rome-domaine-pro', true>;
     icone: Schema.Attribute.Media<'images' | 'files' | 'audios' | 'videos'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -452,6 +453,7 @@ export interface ApiFiliereFiliere extends Struct.CollectionTypeSchema {
       'api::filiere.filiere'
     > &
       Schema.Attribute.Private;
+    metiers: Schema.Attribute.Relation<'manyToMany', 'api::metier.metier'>;
     nom: Schema.Attribute.String;
     photo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -588,7 +590,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
-    filieres: Schema.Attribute.Relation<'oneToMany', 'api::filiere.filiere'>;
+    filieres: Schema.Attribute.Relation<'manyToMany', 'api::filiere.filiere'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
