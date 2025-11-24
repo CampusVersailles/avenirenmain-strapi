@@ -15,7 +15,12 @@ type FiliereSubset = Pick<
   | "video"
   | "icone"
   | "romeCode_GrandDomaines"
->;
+> & {
+  domainesPro: Pick<
+    FiliereFullType["domainesPro"][number],
+    "code" | "description"
+  >[];
+};
 
 /**
  * Seed the `Filiere` content type.
@@ -41,6 +46,10 @@ export async function seedFiliere(strapi: Core.Strapi) {
       photo,
       video,
       icone,
+      domainesPro: item.domaines_professionnels.map((domaine) => ({
+        code: domaine.value,
+        description: domaine.label,
+      })),
     });
   }
   await insertDocuments(strapi, seedData, TARGET_UID);
