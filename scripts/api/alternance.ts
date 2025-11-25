@@ -76,7 +76,7 @@ const main = async () => {
   console.log("Fetching filieres from Strapi...");
   const filieresResponse = await axios.get<{
     data: {
-      id: number;
+      documentId: string;
       nom: string;
       romeCode_GrandDomaines: string[];
     }[];
@@ -89,14 +89,14 @@ const main = async () => {
   const filieres = filieresResponse.data.data;
   console.log(`Found ${filieres.length} filieres`);
 
-  const romeDomainToFilieres = new Map<string, number[]>();
+  const romeDomainToFilieres = new Map<string, string[]>();
 
   for (const filiere of filieres) {
     for (const romeDomain of filiere.romeCode_GrandDomaines) {
       if (!romeDomainToFilieres.has(romeDomain)) {
         romeDomainToFilieres.set(romeDomain, []);
       }
-      romeDomainToFilieres.get(romeDomain).push(filiere.id);
+      romeDomainToFilieres.get(romeDomain).push(filiere.documentId);
     }
   }
 
