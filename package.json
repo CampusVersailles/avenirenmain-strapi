@@ -38,10 +38,6 @@
     "tsx": "^4.20.6",
     "typescript": "^5"
   },
-  "engines": {
-    "node": ">22.0.0",
-    "pnpm": "10"
-  },
   "strapi": {
     "uuid": "f33fbf3f-991c-4b06-b2c5-6f239b745986",
     "installId": "e7baa1b825442a67a65a1683a8e720eb428f2fe749b823d912f802657c93866c"
