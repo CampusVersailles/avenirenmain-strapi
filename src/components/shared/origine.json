@@ -11,7 +11,8 @@
       "enum": [
         "Manuel",
         "API",
-        "Systeme"
+        "Systeme",
+        "Alternance"
       ]
     },
     "detailsOrigine": {
