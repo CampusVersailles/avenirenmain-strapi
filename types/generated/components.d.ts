@@ -47,7 +47,9 @@ export interface SharedOrigine extends Struct.ComponentSchema {
   };
   attributes: {
     detailsOrigine: Schema.Attribute.String;
-    typeOrigine: Schema.Attribute.Enumeration<['Manuel', 'API', 'Systeme']> &
+    typeOrigine: Schema.Attribute.Enumeration<
+      ['Manuel', 'API', 'Systeme', 'Alternance']
+    > &
       Schema.Attribute.Required;
   };
 }

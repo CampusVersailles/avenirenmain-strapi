@@ -547,8 +547,8 @@ export interface ApiFormationFormation extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::formation-duree.formation-duree'
     >;
-    formationNiveaux: Schema.Attribute.Relation<
-      'oneToMany',
+    formationNiveau: Schema.Attribute.Relation<
+      'oneToOne',
       'api::formation-niveau.formation-niveau'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

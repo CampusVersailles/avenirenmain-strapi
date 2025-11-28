@@ -30,9 +30,9 @@
       "relation": "oneToOne",
       "target": "api::formation-duree.formation-duree"
     },
-    "formationNiveaux": {
+    "formationNiveau": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::formation-niveau.formation-niveau"
     },
     "siteWeb": {
