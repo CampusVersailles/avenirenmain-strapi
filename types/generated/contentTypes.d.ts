@@ -558,10 +558,11 @@ export interface ApiFormationFormation extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nomEtablissement: Schema.Attribute.String;
-    origine: Schema.Attribute.Component<'shared.origine', false>;
+    origine: Schema.Attribute.Enumeration<['ONISEP', 'Alternance']>;
+    origineId: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     romeCodeMetiers: Schema.Attribute.Component<'shared.rome-code', true>;
-    siteWeb: Schema.Attribute.String;
+    siteWeb: Schema.Attribute.Text;
     titre: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

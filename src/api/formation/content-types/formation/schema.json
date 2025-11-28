@@ -36,7 +36,7 @@
       "target": "api::formation-niveau.formation-niveau"
     },
     "siteWeb": {
-      "type": "string"
+      "type": "text"
     },
     "contact": {
       "type": "string"
@@ -55,9 +55,14 @@
       "type": "string"
     },
     "origine": {
-      "type": "component",
-      "component": "shared.origine",
-      "repeatable": false
+      "type": "enumeration",
+      "enum": [
+        "ONISEP",
+        "Alternance"
+      ]
+    },
+    "origineId": {
+      "type": "string"
     }
   }
 }

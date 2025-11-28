@@ -104,7 +104,7 @@ const main = async () => {
           `https://api.apprentissage.beta.gouv.fr/api/formation/v1/search?romes=${rome}&page_index=${page}`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.ONISEP_TOKEN_ID}`,
+              Authorization: `Bearer ${process.env.ALTERNANCE_TOKEN_ID}`,
             },
           }
         );
@@ -125,9 +125,8 @@ const main = async () => {
             .documents("api::formation.formation")
             .findFirst({
               filters: {
-                origine: {
-                  detailsOrigine: id,
-                },
+                origine: "Alternance",
+                origineId: id,
               },
             });
 
@@ -154,11 +153,10 @@ const main = async () => {
               formationDuree: durees.find(
                 (d) =>
                   d.label ===
-                  `${formation.modalite.duree_indicative} an${
+                  `${Math.min(formation.modalite.duree_indicative, 7)} an${
                     formation.modalite.duree_indicative > 1 ? "s" : ""
                   }`
-                // Il y a des durées indicatives à 9
-              )?.documentId,
+              ).documentId,
               formationNiveau:
                 levels[
                   formation.certification.valeur.intitule.niveau.cfd.europeen
@@ -173,10 +171,8 @@ const main = async () => {
                 longitude: formation.lieu.geolocalisation.coordinates[0],
                 latitude: formation.lieu.geolocalisation.coordinates[1],
               },
-              origine: {
-                typeOrigine: "Alternance",
-                detailsOrigine: id,
-              },
+              origine: "Alternance",
+              origineId: id,
             },
             status: "published",
           });
@@ -191,10 +187,8 @@ const main = async () => {
       .documents("api::formation.formation")
       .findMany({
         filters: {
-          origine: {
-            typeOrigine: "Alternance",
-            detailsOrigine: { $notIn: Array.from(formationsToCreate) },
-          },
+          origine: "Alternance",
+          origineId: { $notIn: Array.from(formationsToCreate) },
         },
       });
 
