@@ -98,7 +98,9 @@ const main = async () => {
 
     const domaineToRomes = new Map<string, Set<string>>();
     for (const metier of metiersMetadata) {
-      if (!metier["domainesous-domaine"] || !metier.code_rome) continue;
+      if (!metier["domainesous-domaine"] || !metier.code_rome) {
+        continue;
+      }
 
       const domaines = metier["domainesous-domaine"].split("|");
       const romeCodes = metier.code_rome.split("|");
@@ -176,21 +178,6 @@ const main = async () => {
 
       for (const formation of results.data.results) {
         const id = formation.action_de_formation_af_identifiant_onisep;
-        formationsToCreate.add(id);
-
-        const existing = await strapi
-          .documents("api::formation.formation")
-          .findFirst({
-            filters: {
-              origine: "ONISEP",
-              origineId: id,
-            },
-          });
-
-        if (existing) {
-          totalSkipped++;
-          continue;
-        }
 
         const domaines = formation.for_indexation_domaine_web_onisep.split("|");
         const romeCodes = new Set<string>();
@@ -210,7 +197,22 @@ const main = async () => {
           }
         }
 
-        if (romeCodes.size === 0) {
+        if (romeCodes.size === 0 || filiereIds.size === 0) {
+          totalSkipped++;
+          continue;
+        }
+
+        formationsToCreate.add(id);
+        const existing = await strapi
+          .documents("api::formation.formation")
+          .findFirst({
+            filters: {
+              origine: "ONISEP",
+              origineId: id,
+            },
+          });
+
+        if (existing) {
           totalSkipped++;
           continue;
         }
@@ -252,6 +254,7 @@ const main = async () => {
           status: "published",
         });
       }
+      await new Promise((r) => setTimeout(r, 500)); // To avoid rate limiting
     } while (from < total);
 
     console.log("\nCleaning up old formations...");
