@@ -64,7 +64,7 @@
     },
     "mediaSecondaire": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -77,6 +77,12 @@
       "relation": "manyToMany",
       "target": "api::filiere.filiere",
       "mappedBy": "metiers"
+    },
+    "videoUrl": {
+      "type": "string"
+    },
+    "appellation": {
+      "type": "boolean"
     }
   }
 }

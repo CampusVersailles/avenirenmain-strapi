@@ -25,7 +25,6 @@ export interface SharedAppellation extends Struct.ComponentSchema {
   };
   attributes: {
     metier: Schema.Attribute.Relation<'oneToOne', 'api::metier.metier'>;
-    metierDisponible: Schema.Attribute.Boolean;
     nom: Schema.Attribute.String;
   };
 }
