@@ -100,7 +100,7 @@ async function downloadFromUrl(url: string, name: string): Promise<FileData> {
  * @param name - The name of the file
  * @returns the uploaded file
  */
-async function uploadFile(file: FileData, name: string) {
+export async function uploadFile(file: FileData, name: string) {
   return strapi
     .plugin("upload")
     .service("upload")
