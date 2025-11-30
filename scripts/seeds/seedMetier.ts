@@ -9,6 +9,14 @@ const TARGET_UID = "api::metier.metier";
  * @param strapi - The Strapi instance
  */
 export async function seedMetier(strapi: Core.Strapi) {
+  const existingValues = await strapi.documents(TARGET_UID).findMany();
+  await Promise.all(
+    existingValues.map(async (metier) =>
+      strapi.documents(TARGET_UID).delete({
+        documentId: metier.documentId,
+      })
+    )
+  );
   const filieres = await strapi.documents("api::filiere.filiere").findMany({
     filters: {
       nom: {
@@ -25,6 +33,7 @@ export async function seedMetier(strapi: Core.Strapi) {
     );
     seedData.push({
       titre: item.titre,
+      appellation: false,
       description: [
         {
           type: "paragraph",
@@ -77,10 +86,6 @@ export async function seedMetier(strapi: Core.Strapi) {
           },
         ],
       },
-      appellations: item.appellations.map((appellation) => ({
-        nom: appellation,
-        metierDisponible: false,
-      })),
       metiersProches: [],
       salaire: null,
       codeRomeMetier: {

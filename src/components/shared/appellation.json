@@ -8,9 +8,6 @@
     "nom": {
       "type": "string"
     },
-    "metierDisponible": {
-      "type": "boolean"
-    },
     "metier": {
       "type": "relation",
       "relation": "oneToOne",

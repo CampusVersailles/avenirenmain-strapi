@@ -581,6 +581,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    appellation: Schema.Attribute.Boolean;
     appellations: Schema.Attribute.Component<'shared.appellation', true>;
     centresInterets: Schema.Attribute.Component<
       'shared.titre-et-description',
@@ -602,8 +603,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     mediaSecondaire: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+      'images' | 'files' | 'videos' | 'audios'
     >;
     metiersProches: Schema.Attribute.Component<'shared.metier-proche', true>;
     pourquoi: Schema.Attribute.Component<'shared.pourquoi-metier', false>;
@@ -617,6 +617,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    videoUrl: Schema.Attribute.String;
   };
 }
 
