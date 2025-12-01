@@ -68,7 +68,8 @@ function markdownToBlocks(text: string) {
     const children: any[] = [];
     let remaining = para.trim();
 
-    const parts = remaining.split(/(\*[^*]+\*)/g);
+    // Split by *italic* and ~~strikethrough~~, keeping delimiters
+    const parts = remaining.split(/(\*[^*]+\*|~~[^~]+~~)/g);
 
     for (const part of parts) {
       if (!part) {
@@ -82,12 +83,18 @@ function markdownToBlocks(text: string) {
           text: italicMatch[1],
           italic: true,
         });
-      } else {
-        children.push({
-          type: "text",
-          text: part,
-        });
+        continue;
       }
+
+      const strikeMatch = part.match(/^~~([^~]+)~~$/);
+      if (strikeMatch) {
+        continue;
+      }
+
+      children.push({
+        type: "text",
+        text: part,
+      });
     }
 
     return {

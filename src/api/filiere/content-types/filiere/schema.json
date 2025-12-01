@@ -30,16 +30,6 @@
         "audios"
       ]
     },
-    "video": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "icone": {
       "type": "media",
       "multiple": false,
