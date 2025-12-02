@@ -122,9 +122,6 @@ const main = async () => {
         status: "published",
       });
 
-      console.log(
-        `  ✓ ${metier.titre} salary updated to min:${salaire[0]} max:${salaire[1]}`
-      );
       nFound++;
     }
     console.log(`  ✅ ${nFound} Salaries found`);
