@@ -8,13 +8,7 @@ type TARGET_UID_TYPE = typeof TARGET_UID;
 type FiliereFullType = Data.ContentType<TARGET_UID_TYPE>;
 type FiliereSubset = Pick<
   FiliereFullType,
-  | "nom"
-  | "titre"
-  | "description"
-  | "photo"
-  | "video"
-  | "icone"
-  | "romeCode_GrandDomaines"
+  "nom" | "titre" | "description" | "photo" | "icone" | "romeCode_GrandDomaines"
 > & {
   domainesPro: Pick<
     FiliereFullType["domainesPro"][number],
@@ -42,10 +36,6 @@ export async function seedFiliere(strapi: Core.Strapi) {
       item.photo.url,
       item.photo.name
     );
-    const video = await checkFileExistsBeforeUpload(
-      item.video.url,
-      item.video.name
-    );
     const icone = await checkFileExistsBeforeUpload(
       item.icone.url,
       item.icone.name
@@ -53,7 +43,6 @@ export async function seedFiliere(strapi: Core.Strapi) {
     seedData.push({
       ...item,
       photo,
-      video,
       icone,
       domainesPro: item.domaines_professionnels.map((domaine) => ({
         code: domaine.value,
