@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_lien_metiers",
+  "info": {
+    "displayName": "LienMetier"
+  },
+  "options": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "metier": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::metier.metier"
+    }
+  },
+  "config": {}
+}

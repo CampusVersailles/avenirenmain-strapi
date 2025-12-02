@@ -581,7 +581,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
   };
   attributes: {
     appellation: Schema.Attribute.Boolean;
-    appellations: Schema.Attribute.Component<'shared.appellation', true>;
+    appellations: Schema.Attribute.Component<'shared.lien-metier', true>;
     centresInterets: Schema.Attribute.Component<
       'shared.titre-et-description',
       true
@@ -604,7 +604,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
     mediaSecondaire: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    metiersProches: Schema.Attribute.Component<'shared.metier-proche', true>;
+    metiersProches: Schema.Attribute.Component<'shared.lien-metier', true>;
     pourquoi: Schema.Attribute.Component<'shared.pourquoi-metier', false>;
     publishedAt: Schema.Attribute.DateTime;
     salaire: Schema.Attribute.Component<'shared.salaire', false>;

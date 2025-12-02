@@ -29,12 +29,13 @@ export interface SharedAppellation extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedMetierProche extends Struct.ComponentSchema {
-  collectionName: 'components_shared_metier_proches';
+export interface SharedLienMetier extends Struct.ComponentSchema {
+  collectionName: 'components_shared_lien_metiers';
   info: {
-    displayName: 'MetierProche';
+    displayName: 'LienMetier';
   };
   attributes: {
+    metier: Schema.Attribute.Relation<'oneToOne', 'api::metier.metier'>;
     nom: Schema.Attribute.String;
   };
 }
@@ -100,7 +101,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.adresse': SharedAdresse;
       'shared.appellation': SharedAppellation;
-      'shared.metier-proche': SharedMetierProche;
+      'shared.lien-metier': SharedLienMetier;
       'shared.pourquoi-metier': SharedPourquoiMetier;
       'shared.rome-code': SharedRomeCode;
       'shared.rome-domaine-pro': SharedRomeDomainePro;
