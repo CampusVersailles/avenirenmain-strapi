@@ -205,12 +205,18 @@ const parseMarkdown = (content: string): MetierMarkdown | null => {
 
   const metiersProches: string[] = [];
   const metiersSection = content.match(
-    /## (?:\*\*)?Métiers proches(?:\*\*)?\s*\n([\s\S]+?)(?=\n##|###)/
+    /## (?:\*\*)?Métiers? [^#\n]*proches?(?:\*\*)?\s*\n([\s\S]+?)(?=\n##|###)/i
   );
   if (metiersSection) {
-    const metierMatches = metiersSection[1].matchAll(/- (.+?)(?:\s*✨)?$/gm);
-    for (const match of metierMatches) {
-      metiersProches.push(match[1].trim());
+    const lines = metiersSection[1].split(/\r?\n/);
+    for (const line of lines) {
+      const clean = line
+        .replace(/\s*✨$/, "")
+        .replace(/^[‣-]\s*/, "")
+        .trim();
+      if (clean && clean !== "*Exemple*") {
+        metiersProches.push(clean);
+      }
     }
   }
 
@@ -728,6 +734,9 @@ const main = async () => {
                 ? markdownToBlocks(parsed.pourquoi.bonASavoir)
                 : undefined,
             },
+            metiersProches: parsed.metiersProches.map((metier) => ({
+              nom: metier,
+            })),
           },
           status: "published",
         });

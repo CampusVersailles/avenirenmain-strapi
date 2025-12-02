@@ -32,16 +32,6 @@
       "component": "shared.pourquoi-metier",
       "repeatable": false
     },
-    "appellations": {
-      "type": "component",
-      "component": "shared.appellation",
-      "repeatable": true
-    },
-    "metiersProches": {
-      "type": "component",
-      "component": "shared.metier-proche",
-      "repeatable": true
-    },
     "salaire": {
       "type": "component",
       "component": "shared.salaire",
@@ -83,6 +73,16 @@
     },
     "appellation": {
       "type": "boolean"
+    },
+    "metiersProches": {
+      "type": "component",
+      "component": "shared.lien-metier",
+      "repeatable": true
+    },
+    "appellations": {
+      "type": "component",
+      "component": "shared.lien-metier",
+      "repeatable": true
     }
   }
 }
