@@ -2,7 +2,6 @@ import { compileStrapi, createStrapi } from "@strapi/strapi";
 import fs from "fs/promises";
 import path from "path";
 import "dotenv/config";
-import Fuse from "fuse.js";
 import { uploadFile } from "./seeds/seedUtils";
 
 async function checkAndUploadLocalFile(
@@ -40,6 +39,7 @@ async function checkAndUploadLocalFile(
 }
 
 interface MetierMarkdown {
+  file: string;
   titre: string;
   description: string;
   tachesQuotidiennes: Array<{ titre: string; description: string }>;
@@ -105,10 +105,17 @@ function markdownToBlocks(text: string) {
 }
 
 const parseMarkdown = (content: string): MetierMarkdown | null => {
-  const titleMatches = content.match(/^#\s+(.+)$/gm);
+  const titleMatches = content
+    .match(/^#\s+(.+)$/gm)
+    .filter((titre) => !titre.toLowerCase().includes("nom du métier"));
   if (!titleMatches || titleMatches.length === 0) {
     return null;
   }
+  const file = titleMatches[0]
+    .replace(/^#\s+/, "")
+    .replace(/\*\*/g, "")
+    .split(" - ")[0]
+    .trim();
   const titre = titleMatches[titleMatches.length - 1]
     .replace(/^#\s+/, "")
     .replace(/\*\*/g, "")
@@ -253,6 +260,7 @@ const parseMarkdown = (content: string): MetierMarkdown | null => {
   }
 
   return {
+    file,
     titre,
     description,
     tachesQuotidiennes,
@@ -297,8 +305,11 @@ const metierToRome: Record<string, string> = {
   "apprêteur / apprêteuse": "B1603",
   "archetier / archetière": "B1501",
   "ardoisier / ardoisière": "F1619",
+  "couvreur ardoisier / couvreuse ardoisière": "F1619",
   "argenteur et/ou doreur sur métal / argenteuse et/ou doreuse sur métal":
     "B1302",
+  "argenteur et/ou doreur / argenteuse et/ou doreuse sur métal": "B1302",
+  "armurier / armurière": "B1601",
   "armurier / armurière d'art": "B1601",
   "artisan surcycleur / artisane surcycleuse": "K2304",
   "âtrier / âtrière": "F1703",
@@ -306,12 +317,16 @@ const metierToRome: Record<string, string> = {
   "bijoutier / bijoutière en métaux précieux": "B1605",
   "bijoutier / bijoutière fantaisie": "B1605",
   bombeur: "B1602",
+  "bombeur / bombeuse": "B1602",
   "bottier main / bottière main": "B1802",
+  "bottier / bottière": "B1802",
   "boutonnier / boutonnière": "B1804",
   "briquetier / briquetière": "F1703",
+  "briquetier/briquetière": "F1703",
   "bronzier / bronzière": "B1601",
   "brodeur / brodeuse": "B1804",
   "brodeur / brodeuse à l'aiguille": "B1804",
+  "brodeur / brodeuse à l’aiguille": "B1804",
   "brodeur / brodeuse crochet (lunéville)": "B1804",
   "brodeur / brodeuse sur machine guidée main": "B1804",
   "brossier / brossière": "B1804",
@@ -326,10 +341,13 @@ const metierToRome: Record<string, string> = {
   céramiste: "B1201",
   chaîniste: "B1603",
   "chapelier / chapelière et modiste": "B1801",
+  "chapelier / chapelière": "B1801",
   "charpentier / charpentière": "F1503",
   charpentier: "F1503",
   "charpentier de marine / charpentière de marine": "F1503",
+  "charpentier / charpentière bois en construction navale": "F1503",
   "chaumier / chaumière": "F1619",
+  "couvreur / couvreuse de chaume": "F1619",
   "chef / cheffe de projet en valorisation des matériaux": "M1402",
   "cirier / cirière": "B1302",
   "ciseleur / ciseleuse": "B1303",
@@ -337,34 +355,50 @@ const metierToRome: Record<string, string> = {
   "corsetier / corsetière": "B1803",
   "costumier / costumière": "L1502",
   "coupeur / coupeuse": "B1803",
+  "coupeur-tailleur / coupeuse-tailleuse": "B1803",
   "coutelier / coutelière": "B1601",
+  "coutelier / coutelière d'art": "B1601",
   "couturier / couturière": "B1803",
   "couturier / couturière flou": "B1803",
   "couvreur du patrimoine bâti / couvreuse du patrimoine bâti": "F1619",
+  "couvreur / couvreuse du patrimoine bâti": "F1619",
   "couvreur ornemaniste / couvreuse ornemaniste": "F1619",
+  "couvreur / couvreuse ornemaniste": "F1619",
   "creative technologist ou codeur créatif / codeuse créative": "E1104",
   "décorateur / décoratrice en résine": "B1603",
   "décorateur sur céramique / décoratrice sur céramique": "B1201",
+  "décorateur / décoratrice sur céramique": "B1201",
   "dentellier / dentellière": "B1804",
+  "dentellier / dentellière à la main": "B1804",
   "dentellier / dentellière au fuseau": "B1804",
   "dentellier / dentellière à l'aiguille": "B1804",
   diamantaire: "B1607",
   "dinandier / dinandière": "B1601",
   "dominotier / dominotière": "B1302",
   "doreur / doreuse": "B1302",
+  "doreur / doreuse sur verre": "B1302",
+  "doreur / doreuse d'art": "B1302",
   "doreur sur cuir / doreuse sur cuir": "B1302",
+  "doreur / doreuse sur cuir": "B1302",
   "doreur / doreuse sur tranche": "B1302",
   ébéniste: "H2207",
   écailliste: "H2208",
   "émailleur sur cadrans / émailleuse sur cadrans": "B1604",
+  "émailleur / émailleuse sur cadrans": "B1604",
   "émailleur sur lave / émailleuse sur lave": "B1302",
   "émailleur sur métal / émailleuse sur métal": "B1302",
   "émailleur sur terre / émailleuse sur terre": "B1201",
+  "émailleur / émailleuse sur lave": "B1302",
+  "émailleur / émailleuse sur métal": "B1302",
+  "émailleur / émailleuse sur terre": "B1201",
   "encadreur / encadreuse": "H2208",
   "enlumineur / enlumineuse": "B1101",
   "ennoblisseur / ennoblisseuse textile": "H1408",
+  "ennoblisseur textile / ennoblisseuse textile": "H1408",
   "escaliéteur / escaliéteuse": "F1503",
+  "escaliéteur / escaliéteuse": "F1503",
   eventailliste: "B1804",
+  éventailliste: "B1804",
   "fabricant / fabricante d'accessoires de spectacle": "H2206",
   "fabricant / fabricante de décors de spectacle": "H2206",
   "fabricant / fabricante d'anches": "B1501",
@@ -373,23 +407,35 @@ const metierToRome: Record<string, string> = {
   "fabricant / fabricante d'automates": "B1604",
   "fabmanager / fabmanageuse": "M1305",
   "fabricant de chaussures / fabricante de chaussures": "B1802",
+  "fabricant / fabricante de chaussures": "B1802",
   "fabricant d'objets en papier et/ou carton / fabricante d'objets en papier et/ou carton":
     "B1101",
+  "fabricant / fabricante d’objets en papier et/ou carton": "B1101",
   "fabricant / fabricante d'objets en textiles": "B1101",
+  "fabricant / fabricante de bardeaux et de lattes": "F1503",
   "fabricant de bardeaux et de lattes / fabricante de bardeaux et de lattes":
     "F1503",
   "fabricant de carreaux / fabricante de carreaux": "F1608",
   "fabricant / fabricantes de coiffes": "B1801",
+  "fabricant / fabricante de coiffes": "B1801",
   "fabricant de compositions et décors végétaux stables et durables / fabricante de compositions et décors végétaux stables et durables":
+    "B1101",
+  "fabricant / fabricante de compositions et décors végétaux stables et durables":
     "B1101",
   "fabricant de girouettes et d'éléments de faîtage / fabricante de girouettes et d'éléments de faîtage":
     "F1619",
+  "fabricant / fabricante de girouettes et d’éléments de faîtage": "F1619",
   "fabricant de papier / fabricante de papier": "B1402",
+  "fabricant / fabricante de papier": "B1402",
   "fabricant de papier peint / fabricante de papier peint": "B1302",
+  "imprimeur / imprimeuse papier peint à la planche": "B1302",
   "fabricant / fabricante de parapluies, parasols, ombrelles et cannes":
     "B1805",
+  "fabricant / fabricante de cannes": "B1805",
   "fabricant de serrures / fabricante de serrures": "B1601",
+  "serrurier / serrurière d'art": "B1601",
   "fabricant / fabricante de tapis et/ou tapisserie": "B1806",
+  "tapissier-lissier / tapissière-lissière": "B1806",
   "fabricant de tapis et/ou tapisserie / fabricante de tapis et/ou tapisserie":
     "B1806",
   "fabricant / fabricante de jeux": "H2208",
@@ -401,36 +447,59 @@ const metierToRome: Record<string, string> = {
   "fabricant / fabricante de marionnettes": "L1503",
   "fabricant / fabricante de masques": "L1503",
   "facteur / factrice d'instruments à vent": "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments à vent":
+    "B1501",
   "facteur / factrice d'instruments à vent-bois": "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments à vent en bois":
+    "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’instrument à vent en métal":
+    "B1501",
   "facteur et/ou restaurateur d'instruments à vent en métal / factrice et/ou restauratrice d'instruments à vent en métal":
     "B1501",
   "facteur et/ou restaurateur de percussions / factrice et/ou restauratrice de percussions":
     "B1501",
+  "facteur / factrice de percussions": "B1501",
   "facteur et/ou restaurateur de pianos / factrice et/ou restauratrice de pianos":
     "B1501",
   "facteur et/ou restaurateur d'accordéons / factrice et/ou restauratrice d'accordéons":
     "B1501",
+  "fabricant / fabricante d'accordéons": "B1501",
   "facteur et/ou restaurateur de harpes / factrice et/ou restauratrice de harpes":
+    "B1501",
+  "facteur / factrice de harpes": "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’harmoniums":
     "B1501",
   "facteur et/ou restaurateur d'harmoniums / factrice et/ou restauratrice d'harmoniums":
     "B1501",
   "facteur et/ou restaurateur d'instruments à claviers / factrice et/ou restauratrice d'instruments à claviers":
     "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments à claviers":
+    "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments de musique mécanique":
+    "B1501",
   "facteur et/ou restaurateur d'instruments de musique mécanique / factrice et/ou restauratrice d'instruments de musique mécanique":
     "B1501",
   "facteur et/ou restaurateur d'orgues / factrice et/ou restauratrice d'orgues":
     "B1501",
+  "facteur / factrice d'orgues": "B1501",
   "facteur et/ou restaurateur de clavecins et épinettes / factrice et/ou restauratrice de clavecins et épinettes":
     "B1501",
+  "facteur / factrice de clavecins": "B1501",
   "facteur et/ou restaurateur d'instruments traditionnels / factrice et/ou restauratrice d'instruments traditionnels":
+    "B1501",
+  "facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments traditionnels":
     "B1501",
   féron: "B1601",
   "ferronnier-forgeron / ferronnière-forgeronne": "B1601",
+  "ferronnier / ferronnière d'art": "B1601",
+  "forgeron / forgeronne d'art": "B1601",
   "feutrier / feutrière": "B1804",
   "fondeur / fondeuse": "B1601",
   "fondeur d'étain / fondeuse d'étain": "B1601",
+  "fondeur / fondeuse d’étain": "B1601",
   "fondeur / fondeuse de caractères": "B1303",
   "fondeur / fondeuse de cloches et sonnailles": "B1601",
+  "fondeur / fondeuse de cloches": "B1601",
   "fontainier / fontainière": "F1612",
   "fourreur / fourreuse": "B1803",
   "formier / formière": "H2208",
@@ -438,11 +507,14 @@ const metierToRome: Record<string, string> = {
   "gantier / gantière": "B1802",
   fresquiste: "B1101",
   "gaufreur sur cuir / gaufreuse sur cuir": "B1802",
+  "gaufreur / gaufreuse sur cuir": "B1802",
   "gaufreur sur textile / gaufreuse sur textile": "B1804",
+  "gaufreur / gaufreuse sur textile": "B1804",
   "glypticien / glypticienne": "B1603",
   "graveur / graveuse": "B1303",
   "graveur et imprimeur / graveur et imprimeuse en gaufrage": "B1303",
   "graveur de poinçons / graveure de poinçons": "B1303",
+  "graveur / graveuse de poinçons": "B1303",
   "graveur héraldiste / graveuse héraldiste": "B1303",
   "graveur médailleur / graveuse médailleuse": "B1303",
   "graveur / graveuse sur pierre": "B1303",
@@ -457,29 +529,48 @@ const metierToRome: Record<string, string> = {
   "imprimeur / imprimeuse en héliogravure": "E1301",
   "imprimeur / imprimeuse en lithographie": "E1301",
   "imprimeur en risographie / imprimeuse en risographie": "E1301",
+  "imprimeur / imprimeuse en risographie": "E1301",
   "imprimeur en sérigraphie / imprimeuse en sérigraphie": "E1301",
+  "imprimeur / imprimeuse en sérigraphie": "E1301",
   "imprimeur / imprimeuse en typographie": "E1301",
   "imprimeur-graveur / imprimeuse-graveuse en taille-douce": "B1303",
   "jardinier du patrimoine / jardinière du patrimoine": "A1203",
+  "jardinier / jardinière du patrimoine": "A1203",
   "joaillier / joaillière": "B1606",
   lapidaire: "B1607",
   "lapidaire tourneur sur pierres dures et fines / lapidaire tourneuse sur pierres dures et fines":
     "B1607",
+  "lapidaire tourneur / tourneuse sur pierres dures et fines": "B1607",
+  "laqueur-doreur / laqueuse-doreuse": "B1302",
+  "laqueur-décorateur / laqueuse-décoratrice": "B1302",
   "laqueur / laqueuse": "B1302",
+  "laqueur / laqueuse sur bois": "B1302",
   "lauzier / lauzière ou lavier / lavière": "F1610",
+  "couvreur lauzier / couvreuse lauzière": "F1610",
   "lissier basse-lice / lissière basse-lice": "B1804",
   "lissier haute-lice / lissière haute-lice": "B1804",
   "lissier savonnerie / lissière savonnerie": "B1804",
+  "lissier / lissière basse-lice": "B1804",
+  "lissier / lissière haute-lice": "B1804",
+  "lissier / lissière savonnerie": "B1804",
   "luthier / luthière en guitare et/ou restaurateur / restauratrice de guitares":
     "B1501",
+  "luthier / luthière guitare": "B1501",
   "luthier en guitare et/ou restaurateur de guitares / luthière en guitare et/ou restauratrice de guitares":
     "B1501",
   "luthier et/ou restaurateur d'instruments à cordes frottées / luthière et/ou restauratrice d'instruments à cordes frottées":
     "B1501",
+  "luthier et/ou restaurateur d’instruments à cordes frottées / luthière et/ou restauratrice d’instruments à cordes frottées":
+    "B1501",
   "maçon du patrimoine bâti / maçonne du patrimoine bâti": "F1703",
+  "maçon / maçonne du patrimoine bâti": "F1703",
   "maître verrier / vitrailliste": "B1602",
+  vitrailliste: "B1602",
   "malletier / malletière et layetier / layetière": "B1802",
+  "malletier / malletière": "B1802",
   "marbreur sur papier / marbreuse sur papier": "B1101",
+  "marbreur / marbreuse sur papier": "B1101",
+  "marbrier / marbrière d'art": "F1612",
   "marbrier / marbrière": "F1612",
   "maroquinier / maroquinière": "B1802",
   "marqueteur / marqueteuse de pierres dures": "F1612",
@@ -495,6 +586,7 @@ const metierToRome: Record<string, string> = {
   "miroitier-argenteur / miroitière-argenteuse": "B1302",
   "monnayeur de monnaies ou de médailles / monnayeuse de monnaies ou de médailles":
     "B1603",
+  "monnayeur / monnayeuse de monnaies ou de médailles": "B1603",
   mosaïste: "B1101",
   "murailler / muraillère": "F1703",
   "mouleur / mouleuse": "H2908",
@@ -504,12 +596,19 @@ const metierToRome: Record<string, string> = {
   "pareur / pareuse": "B1802",
   "parqueteur / parqueteuse": "F1608",
   "parurier / parurière floral": "B1804",
+  "parurier floral / parurière florale": "B1804",
+  "parurier / parurière": "B1804",
   "passementier / passementière": "B1804",
+  "passementier/passementière": "B1804",
   "patineur / patineuse": "B1302",
   "peintre en décor": "B1302",
   "peintre décorateur / décoratrice sur tissu": "B1302",
+  "peintre décorateur/décoratrice sur tissu": "B1302",
+  "peintre décorateur / décoratrice": "B1302",
   "paveur-dalleur / paveuse-dalleuse": "F1608",
   "peintre fileur-doreur / peintre fileuse-doreuse": "B1302",
+  "peintre-fileur-décorateur / peintre-fileuse-décoratrice en céramique":
+    "B1302",
   "peintre sur mobilier": "H2207",
   "perruquier-posticheur / perruquière-posticheuse": "L1501",
   "photographe technicien / technicienne": "E1201",
@@ -520,9 +619,11 @@ const metierToRome: Record<string, string> = {
   "poêlier / poêlière": "B1601",
   "polisseur / polisseuse": "B1603",
   "polisseur de verre / polisseuse de verre": "B1602",
+  "polisseur / polisseuse de verre": "B1602",
   "potier / potière d'étain": "B1601",
   "relieur / relieuse": "B1402",
   "préparateur presse-papier / préparatrice presse-papier": "B1602",
+  "préparateur / préparatrice presse-papier": "B1602",
   "restaurateur / restauratrice d'objets scientifiques, techniques, industriels":
     "B1302",
   "restaurateur / restauratrice de céramiques": "B1201",
@@ -539,31 +640,41 @@ const metierToRome: Record<string, string> = {
   "sabreur / sabreuse de velours": "B1804",
   "santonnier / santonnière": "B1201",
   "sculpteur sur pierre / sculptrice sur pierre": "F1612",
+  "sculpteur / sculptrice sur pierre": "F1612",
+  "sculpteur / sculptrice sur terre": "F1612",
   "sculpteur / sculptrice sur bois": "H2208",
   "sculpteur sur métal / sculptrice sur métal": "B1101",
+  "sculpteur / sculptrice sur métal": "B1101",
   "sculpteur sur terre / sculptrice sur terre": "B1101",
   "sellier / sellière": "B1802",
   "sellier-garnisseur / sellière-garnisseuse": "B1802",
   "sellier-harnacheur / sellière-harnacheuse": "B1802",
   "sellier d'ameublement / sellière d'ameublement": "B1802",
+  "sellier d'ameublement / sellière d’ameublement": "B1802",
   "sellier-maroquinier / sellière-maroquinière": "B1802",
   "sérigraphe textile": "B1804",
   "sertisseur / sertisseuse": "B1610",
   "staffeur-stucateur / staffeuse-stucatrice": "F1601",
+  "staffeur / staffeuse": "F1601",
+  "stucateur / stucateuse": "F1601",
   "tabletier / tabletière": "B1302",
   "tailleur / tailleuse": "B1803",
   "tailleur / tailleuse de pierre": "F1612",
   "taillandier / tallandière": "H2911",
   "tailleur de verre / tailleuse de verre": "B1602",
+  "tailleur / tailleuse de verre": "B1602",
   "tanneur / tanneuse et mégissier / mégissière": "B1802",
   "tapissier d'ameublement et/ou tapissier décorateur / tapissière d'ameublement et/ou tapissière décoratrice":
     "B1806",
+  "tapissier / tapissière d'ameublement": "B1806",
+  "tapissier-décorateur / tapissière-décoratrice": "B1806",
   "tourneur / tourneuse sur bois": "H2208",
-  taxidemiste: "B1802",
+  taxidermiste: "B1802",
   "teinturier / teinturière": "B1804",
   "tisserand / tisserande": "B1804",
   "tisserand / tisserande à bras": "B1804",
   "tourneur sur métal / tourneuse sur métal": "B1601",
+  "tourneur / tourneuse sur métal": "B1601",
   "treillageur / treillageuse": "F1701",
   "tresseur / tresseuse": "B1804",
   "tufteur / tufteuse": "B1804",
@@ -574,6 +685,7 @@ const metierToRome: Record<string, string> = {
   "veloutier / veloutière": "B1804",
   "vernisseur / vernisseuse": "B1302",
   "verrier / verrière à la main": "B1602",
+  "verrier / verrière à la flamme": "B1602",
   "verrier au chalumeau / verrière au chalumeau": "B1602",
   "verrier fondeur / verrière fondeuse": "B1602",
   "verrier décorateur / verrière décoratrice": "B1602",
@@ -582,22 +694,205 @@ const metierToRome: Record<string, string> = {
   "moireur / moireuse": "B1804",
 };
 
+const jobs = [
+  "Sculpteur / sculptrice sur bois",
+  "Patineur / Patineuse",
+  "Fabricant / fabricante de serrures",
+  "Fabricant / fabricante de compositions et décors végétaux stables et durables",
+  "Charpentier",
+  "Écailliste",
+  "Décorateur / décoratrice sur céramique",
+  "Céramiste",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice de clavecins et épinettes",
+  "Ciseleur / ciseleuse",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’harmoniums",
+  "Marbrier / marbrière",
+  "Santonnier / Santonnière",
+  "Lapidaire",
+  "Encadreur",
+  "Menuisier",
+  "Fabricant / Fabricante de tapis et/ou tapisserie",
+  "Apprêteur / Apprêteuse",
+  "Plisseur / Plisseuse",
+  "Bronzier / Bronzière",
+  "Charpentier de marine",
+  "Coutelier / Coutelière",
+  "Doreur / Doreuse sur tranche",
+  "Parqueteur / parqueteuse",
+  "Émailleur / émailleuse sur cadrans",
+  "Argenteur et/ou Doreur / argenteuse et/ou doreuse sur métal",
+  "Tapissier / Tapissière d'ameublement",
+  "Bijoutier / Bijoutière",
+  "Laqueur / Laqueuse",
+  "Laqueur-doreur / Laqueuse-doreuse",
+  "Laqueur-décorateur / Laqueuse-décoratrice",
+  "Graveur / Graveuse sur verre",
+  "Couvreur du patrimoine bâti",
+  "Escaliéteur / Escaliéteuse",
+  "Diamantaire",
+  "Imprimeur / Imprimeuse en sérigraphie",
+  "Marqueteur de pailles / Marqueteuse de pailles",
+  "Facteur et/ou restaurateur / Factrice et/ou restauratrice d’accordéon",
+  "Tailleur / Tailleuse de verre",
+  "Doreur / Doreuse sur verre",
+  "Staffeur / Staffeuse",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments à vent en bois",
+  "Bombeur / Bombeuse",
+  "Guillocheur / Guillocheuse",
+  "Lissier / lissière savonnerie",
+  "Parcheminier / Parcheminière",
+  "Bijoutier / Bijoutière en métaux précieux",
+  "Briquetier/Briquetière",
+  "Bottier / Bottière main",
+  "Ferronnier / Ferronnière d'art",
+  "Modeleur / Modeleuse",
+  "Bijoutier / Bijoutière fantaisie",
+  "Teinturier / Teinturière",
+  "Luthier et/ou restaurateur d’instruments à cordes frottées",
+  "Menuisier en sièges / Menuisière en sièges",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice de harpes",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments traditionnels",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments à claviers",
+  "Malletier / Malletière et Layetier / layetière",
+  "Fabricant / Fabricante de girouettes et d’éléments de faîtage",
+  "Lauzier / lauzière ou lavier / lavière",
+  "Féron",
+  "Polisseur / Polisseuse",
+  "Mouleur/Mouleuse",
+  "Peintre en décor",
+  "Pareur / Pareuse",
+  "Sellier-garnisseur / sellière-garnisseuse",
+  "Gantier / Gantière",
+  "Enlumineur / Enlumineuse",
+  "Mosaïste",
+  "Fabricant / Fabricante de papier",
+  "Fabricant / Fabricante d’anches",
+  "Métallier / métallière",
+  "Brodeur / Brodeuse",
+  "Peintre fileur-doreur / fileuse-doreuse",
+  "Émailleur / émailleuse sur lave",
+  "Gainier / Gainière",
+  "Doreur",
+  "Cirier / cirière",
+  "Tufteur/Tufteuse",
+  "Graveur / Graveuse héraldiste",
+  "Rocailleur",
+  "Dominotier / Dominotière",
+  "Marqueteur / marqueteuse de pierres dures",
+  "Émailleur / Émailleuse sur métal",
+  "Brodeur / Brodeuse à l’aiguille",
+  "Ébéniste",
+  "Tailleur / Tailleuse de pierre",
+  "Graveur / Graveure de poinçons",
+  "Dinandier / Dinandière",
+  "Campaniste",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice de pianos",
+  "Fabricant / Fabricante de parapluies, parasols, ombrelles et cannes",
+  "Sculpteur / sculptrice sur métal",
+  "Fourreur / Fourreuse",
+  "Maçon du patrimoine bâti",
+  "Âtrier / Âtrière",
+  "Plumassier / Plumassière",
+  "Verrier fondeur / Verrière fondeuse",
+  "Archetier / Archetière",
+  "Relieur / Relieuse",
+  "Fresquiste",
+  "Murailler / Muraillère",
+  "Gaufreur / Gaufreuse sur cuir",
+  "Peintre décorateur/décoratrice sur tissu",
+  "Maroquinier / Maroquinière",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice de percussions",
+  "Moireur / Moireuse",
+  "Couturier / Couturière",
+  "Costumier / Costumière",
+  "Fondeur / Fondeuse d’étain",
+  "Fabricant / Fabricante de coiffes",
+  "Chaîniste",
+  "Sculpteur / Sculptrice sur terre",
+  "Ardoisier / Ardoisière",
+  "Tourneur / Tourneuse sur bois",
+  "Lissier/Lissière basse-lice",
+  "Brodeur / Brodeuse crochet (Lunéville)",
+  "Glypticien / Glypticienne",
+  "Verrier / Verrière à la main",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments à vent",
+  "Couvreur ornemaniste",
+  "Sertisseur / Sertisseuse",
+  "Marbreur / Marbreuse sur papier",
+  "Creative Technologist ou Codeur créatif / codeuse créative",
+  "Tourneur / Tourneuse sur métal",
+  "Formier / Formière",
+  "Tanneur / Tanneuse et Mégissier / Mégissière",
+  "Verrier / Verrière à la flamme",
+  "Sculpteur / sculptrice sur pierre",
+  "Fabricant / Fabricante de bardeaux et de lattes",
+  "Graveur médailleur / Graveuse médailleuse",
+  "Lapidaire tourneur / tourneuse sur pierres dures et fines",
+  "Taxidermiste",
+  "Armurier / Armurière",
+  "Corsetier / Corsetière",
+  "Paveur-dalleur / paveuse-dalleuse",
+  "Sellier-harnacheur / Sellière-harnacheuse",
+  "Lissier/Lissière haute-lice",
+  "Préparateur / Préparatrice presse-papier",
+  "Sellier-maroquinier / Sellière-maroquinière",
+  "Fabricant / Fabricante de carreaux",
+  "Fabricant / Fabricante d’objets en papier et/ou carton",
+  "Coupeur / Coupeuse",
+  "Passementier/Passementière",
+  "Miroitier-argenteur / Miroitière-argenteuse",
+  "Polisseur / Polisseuse de verre",
+  "Horloger / Horlogère",
+  "Marqueteur / marqueteuse",
+  "Fondeur / Fondeuse de cloches et sonnailles",
+  "Vernisseur / vernisseuse",
+  "Émailleur / émailleuse sur terre",
+  "Verrier décorateur / Verrière décoratrice",
+  "Graveur / Graveuse sur pierre",
+  "Vannier / Vannière",
+  "Fontainier / fontainière",
+  "Poêlier",
+  "Sabreur / Sabreuse de velours",
+  "Graveur / Graveuse",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’instrument à vent en métal",
+  "Gaufreur / Gaufreuse sur textile",
+  "Luthier / Luthière en guitare et/ou restaurateur / restauratrice de guitares",
+  "Maître verrier / Vitrailliste",
+  "Fabmanager / Fabmanageuse",
+  "Jardinier / jardinière du patrimoine",
+  "Fabricant / Fabricante de papier peint",
+  "Facteur et/ou restaurateur / factrice et/ou restauratrice d’instruments de musique mécanique",
+  "Facteur et/ou restaurateur / Factrice et/ou restauratrice d’orgues",
+  "Peintre sur mobilier",
+  "Monnayeur / Monnayeuse de monnaies ou de médailles",
+  "Parurier floral / Parurière florale",
+  "Canneur-rempailleur /Canneuse-rempailleuse",
+  "Doreur / Doreuse sur cuir",
+  "Lunetier / Lunetière",
+  "Joaillier / Joaillière",
+  "Imprimeur / Imprimeuse en héliogravure",
+  "Fabricant / Fabricante de chaussures",
+  "Tuilier / tuilière",
+  "Sellier d'ameublement / Sellière d’ameublement",
+  "Treillageur / treillageuse",
+  "Imprimeur / Imprimeuse en risographie",
+  "Chaumier / chaumière",
+  "Éventailliste",
+  "Chapelier / Chapelière et Modiste",
+  "Chapelier / Chapelière",
+  "Dentellier / Dentellière",
+  "Calligraphe",
+  "Ennoblisseur textile / Ennoblisseuse textile",
+  "Stucateur / Stucateuse",
+  "Tapissier-décorateur / Tapissière-décoratrice",
+  "Forgeron / Forgeronne d'art",
+];
+
 const main = async () => {
   const appContext = await compileStrapi();
   const app = await createStrapi(appContext).load();
 
   app.log.level = "info";
-
-  const fuseOptions = {
-    threshold: 0.2,
-    keys: ["name"],
-    caseSensitive: false,
-  };
-
-  const metiersList = Object.keys(metierToRome).map((name) => ({
-    name,
-  }));
-  const fuse = new Fuse(metiersList, fuseOptions);
 
   try {
     const mdFolder = process.argv[2];
@@ -639,6 +934,13 @@ const main = async () => {
           continue;
         }
 
+        if (!jobs.includes(parsed.file)) {
+          console.log(
+            `  ✗ Job title "${parsed.file}" not found in the predefined jobs list, skipping\n`
+          );
+          continue;
+        }
+
         const existing = await strapi.documents("api::metier.metier").findMany({
           filters: { titre: parsed.titre },
           populate: ["mediaPrincipal"],
@@ -658,19 +960,24 @@ const main = async () => {
             )
           );
         }
-        const searchResult = fuse.search(parsed.titre);
 
-        const codeRome =
-          searchResult.length > 0
-            ? metierToRome[searchResult[0].item.name]
-            : undefined;
+        const codeRome = metierToRome[parsed.titre.toLowerCase()];
+        if (!codeRome) {
+          console.log(
+            `  ✗ No ROME code mapping found for job title "${parsed.titre}", skipping\n`
+          );
+          totalErrors++;
+          continue;
+        }
         const matchingFilieres = codeRome
           ? filieres.filter((filiere) =>
               filiere.domainesPro?.some((dp) => codeRome.startsWith(dp.code))
             )
           : [];
         if (parsed.imagePaths.length > 0) {
-          const folderName = file.replace(/\s+[a-f0-9]{32}\.md$/, "");
+          const folderName = file
+            .replace(/\s+[a-f0-9]{32}\.md$/, "")
+            .replace(".md", "");
           const imageFolderPath = path.join(
             process.cwd(),
             mdFolder,
