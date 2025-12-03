@@ -10,13 +10,11 @@ const TARGET_UID = "api::metier.metier";
  */
 export async function seedMetier(strapi: Core.Strapi) {
   const existingValues = await strapi.documents(TARGET_UID).findMany();
-  await Promise.all(
-    existingValues.map(async (metier) =>
-      strapi.documents(TARGET_UID).delete({
-        documentId: metier.documentId,
-      })
-    )
-  );
+  for (const metier of existingValues) {
+    await strapi.documents(TARGET_UID).delete({
+      documentId: metier.documentId,
+    });
+  }
   const filieres = await strapi.documents("api::filiere.filiere").findMany({
     filters: {
       nom: {
@@ -27,10 +25,9 @@ export async function seedMetier(strapi: Core.Strapi) {
 
   const seedData = [];
   for (const item of metiers) {
-    const mediaPrincipal = await checkFileExistsBeforeUpload(
-      item.photo.url,
-      item.photo.name
-    );
+    const mediaPrincipal = item.photo
+      ? await checkFileExistsBeforeUpload(item.photo.url, item.photo.name)
+      : null;
     seedData.push({
       titre: item.titre,
       appellation: false,
