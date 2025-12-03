@@ -1,6 +1,5 @@
 import { compileStrapi, createStrapi } from "@strapi/strapi";
 import seedMetiers from "../data/seed_metiers.json";
-import Fuse from "fuse.js";
 
 const appellation = {
   "Apprêteur / Apprêteuse":
@@ -326,18 +325,6 @@ const main = async () => {
 
     console.log(`Found ${metiers.length} métiers\n`);
 
-    const fuse = new Fuse(metiers, {
-      keys: ["titre"],
-      threshold: 0.2,
-      isCaseSensitive: false,
-      includeScore: true,
-    });
-
-    const findMetierByTitle = (title: string) => {
-      const results = fuse.search(title);
-      return results[0] ? results[0].item : null;
-    };
-
     console.log("═══════════════════════════════════════\n");
 
     for (const metier of metiers) {
@@ -362,7 +349,9 @@ const main = async () => {
         appellationsToAdd = seedMetier.appellations
           .filter((nom: string) => nom !== metier.titre)
           .map((nom: string) => {
-            const mappedMetier = findMetierByTitle(nom);
+            const mappedMetier = metiers.find(
+              (metier) => metier.titre.toLowerCase() === nom.toLowerCase()
+            );
             return {
               nom,
               metier: mappedMetier ? mappedMetier.documentId : null,
@@ -377,7 +366,10 @@ const main = async () => {
             parentMetierTitre === metier.titre
         )
         .map(([appellationNom]) => {
-          const mappedMetier = findMetierByTitle(appellationNom);
+          const mappedMetier = metiers.find(
+            (metier) =>
+              metier.titre.toLowerCase() === appellationNom.toLowerCase()
+          );
           return {
             nom: appellationNom,
             metier: mappedMetier ? mappedMetier.documentId : null,
@@ -389,7 +381,10 @@ const main = async () => {
       // Si une appellation, on recupere le metier parent et ses autres appellations
       const parentMetierTitre = appellation[metier.titre];
       if (parentMetierTitre) {
-        const parentMetier = findMetierByTitle(parentMetierTitre);
+        const parentMetier = metiers.find(
+          (metier) =>
+            metier.titre.toLowerCase() === parentMetierTitre.toLowerCase()
+        );
 
         if (parentMetier) {
           appellationsToAdd.push({
@@ -404,7 +399,10 @@ const main = async () => {
                 appellationNom !== metier.titre
             )
             .map(([appellationNom]) => {
-              const mappedMetier = findMetierByTitle(appellationNom);
+              const mappedMetier = metiers.find(
+                (metier) =>
+                  metier.titre.toLowerCase() === appellationNom.toLowerCase()
+              );
               return {
                 nom: appellationNom,
                 metier: mappedMetier ? mappedMetier.documentId : null,
