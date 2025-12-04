@@ -203,7 +203,7 @@ const main = async () => {
         }
 
         formationsToCreate.add(id);
-        const existing = await strapi
+        const existing = await app
           .documents("api::formation.formation")
           .findFirst({
             filters: {
@@ -228,7 +228,7 @@ const main = async () => {
         }
 
         totalCreated++;
-        await strapi.documents("api::formation.formation").create({
+        await app.documents("api::formation.formation").create({
           data: {
             titre: formation.formation_for_libelle,
             nomEtablissement: formation.lieu_denseignement_ens_libelle,
@@ -258,17 +258,15 @@ const main = async () => {
     } while (from < total);
 
     console.log("\nCleaning up old formations...");
-    const toDelete = await strapi
-      .documents("api::formation.formation")
-      .findMany({
-        filters: {
-          origine: "ONISEP",
-          origineId: { $notIn: Array.from(formationsToCreate) },
-        },
-      });
+    const toDelete = await app.documents("api::formation.formation").findMany({
+      filters: {
+        origine: "ONISEP",
+        origineId: { $notIn: Array.from(formationsToCreate) },
+      },
+    });
 
     for (const formationToDelete of toDelete) {
-      await strapi.documents("api::formation.formation").delete({
+      await app.documents("api::formation.formation").delete({
         documentId: formationToDelete.documentId,
       });
     }

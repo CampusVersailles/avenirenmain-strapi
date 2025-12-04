@@ -16,11 +16,9 @@ const main = async () => {
   try {
     console.log(`Cleaning all ${contentType}...`);
     const type = `api::${contentType}.${contentType}` as UID.ContentType;
-    const results = await strapi.documents(type).findMany();
-    for (const result of results) {
-      await strapi.documents(type).delete({ documentId: result.documentId });
-    }
-    console.log(`${results.length} ${contentType} cleaned.`);
+    const results = await app.db.query(type).deleteMany({});
+
+    console.log(`${results.count} ${contentType} cleaned.`);
   } finally {
     await app.destroy();
   }

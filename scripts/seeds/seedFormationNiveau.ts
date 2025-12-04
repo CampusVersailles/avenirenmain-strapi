@@ -13,14 +13,8 @@ type FormationNiveauSubset = Pick<FormationNiveauFullType, "label">;
  * @param strapi - The Strapi instance
  */
 export async function seedFormationNiveau(strapi: Core.Strapi) {
-  const existingValues = await strapi.documents(TARGET_UID).findMany();
-  await Promise.all(
-    existingValues.map(async (formationNiveau) =>
-      strapi.documents(TARGET_UID).delete({
-        documentId: formationNiveau.documentId,
-      })
-    )
-  );
+  await strapi.db.query(TARGET_UID).deleteMany({});
+
   const seedData: FormationNiveauSubset[] = [];
   for (const item of formation_niveaux) {
     seedData.push({ label: item.label });

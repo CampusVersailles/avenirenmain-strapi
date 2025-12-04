@@ -111,7 +111,7 @@ const main = async () => {
         continue;
       }
 
-      await strapi.documents("api::metier.metier").update({
+      await app.documents("api::metier.metier").update({
         documentId: metier.documentId,
         data: {
           salaire: {
@@ -132,7 +132,7 @@ const main = async () => {
   } catch (error) {
     console.error("Error:", error);
   } finally {
-    await strapi.destroy();
+    await app.destroy();
   }
 };
 
