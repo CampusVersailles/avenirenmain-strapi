@@ -58,7 +58,8 @@
       "type": "enumeration",
       "enum": [
         "ONISEP",
-        "Alternance"
+        "Alternance",
+        "Site"
       ]
     },
     "origineId": {
