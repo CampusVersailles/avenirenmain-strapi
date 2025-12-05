@@ -950,7 +950,6 @@ const main = async () => {
         let mediaPrincipal;
         let mediaSecondaire;
         if (existing.length > 0) {
-          continue;
           mediaPrincipal = existing.find(
             (metier) => metier.mediaPrincipal
           )?.mediaPrincipal;
@@ -1015,6 +1014,7 @@ const main = async () => {
 
         await app.documents("api::metier.metier").create({
           data: {
+            origine: "Orph\u00E9e",
             titre: parsed.titre,
             description: markdownToBlocks(parsed.description),
             appellation: !metiers.has(parsed.titre.toLowerCase()),
