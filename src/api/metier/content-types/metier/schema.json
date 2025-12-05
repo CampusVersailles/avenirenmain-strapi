@@ -83,6 +83,13 @@
       "type": "component",
       "component": "shared.lien-metier",
       "repeatable": true
+    },
+    "origine": {
+      "type": "enumeration",
+      "enum": [
+        "AEM",
+        "Orphée"
+      ]
     }
   }
 }

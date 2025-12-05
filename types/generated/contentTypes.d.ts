@@ -605,6 +605,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     metiersProches: Schema.Attribute.Component<'shared.lien-metier', true>;
+    origine: Schema.Attribute.Enumeration<['AEM', 'Orph\u00E9e']>;
     pourquoi: Schema.Attribute.Component<'shared.pourquoi-metier', false>;
     publishedAt: Schema.Attribute.DateTime;
     salaire: Schema.Attribute.Component<'shared.salaire', false>;

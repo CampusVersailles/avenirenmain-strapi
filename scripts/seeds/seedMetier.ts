@@ -91,6 +91,7 @@ export async function seedMetier(strapi: Core.Strapi) {
         .map((filiere) => ({
           id: filiere.id,
         })),
+      origine: "AEM",
     });
   }
   await insertDocuments(strapi, seedData, TARGET_UID);
