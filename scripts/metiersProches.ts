@@ -9,7 +9,7 @@ const main = async () => {
   try {
     console.log("Fetching all métiers...\n");
 
-    const metiers = await strapi.documents("api::metier.metier").findMany({
+    const metiers = await app.documents("api::metier.metier").findMany({
       populate: ["metiersProches"],
     });
 
@@ -29,7 +29,7 @@ const main = async () => {
         };
       });
       if (metiersProches.length > 0) {
-        await strapi.documents("api::metier.metier").update({
+        await app.documents("api::metier.metier").update({
           documentId: metier.documentId,
           data: {
             metiersProches,
@@ -50,7 +50,7 @@ const main = async () => {
   } catch (error) {
     console.error("Error:", error);
   } finally {
-    await strapi.destroy();
+    await app.destroy();
   }
 };
 

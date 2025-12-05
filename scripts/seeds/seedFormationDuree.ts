@@ -13,14 +13,8 @@ type FormationDureeSubset = Pick<FormationDureeFullType, "label">;
  * @param strapi - The Strapi instance
  */
 export async function seedFormationDuree(strapi: Core.Strapi) {
-  const existingValues = await strapi.documents(TARGET_UID).findMany();
-  await Promise.all(
-    existingValues.map(async (formationDuree) =>
-      strapi.documents(TARGET_UID).delete({
-        documentId: formationDuree.documentId,
-      })
-    )
-  );
+  await strapi.db.query(TARGET_UID).deleteMany({});
+
   const seedData: FormationDureeSubset[] = [];
   for (const item of formation_durees) {
     seedData.push({ label: item.label });

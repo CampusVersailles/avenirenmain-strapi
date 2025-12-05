@@ -1,14 +1,15 @@
-import { compileStrapi, createStrapi } from "@strapi/strapi";
+import { compileStrapi, Core, createStrapi } from "@strapi/strapi";
 import fs from "fs/promises";
 import path from "path";
 import "dotenv/config";
 import { uploadFile } from "./seeds/seedUtils";
 
 async function checkAndUploadLocalFile(
+  app: Core.Strapi,
   filePath: string,
   fileName: string
 ): Promise<any> {
-  const existingFile = await strapi.query("plugin::upload.file").findOne({
+  const existingFile = await app.query("plugin::upload.file").findOne({
     where: { name: fileName },
   });
 
@@ -907,7 +908,7 @@ const main = async () => {
     console.log(`Reading markdown files from: ${mdFolder}\n`);
 
     console.log("Loading filieres from Strapi...");
-    const filieres = await strapi.documents("api::filiere.filiere").findMany({
+    const filieres = await app.documents("api::filiere.filiere").findMany({
       populate: ["domainesPro"],
     });
     console.log(`Found ${filieres.length} filieres\n`);
@@ -941,7 +942,7 @@ const main = async () => {
           continue;
         }
 
-        const existing = await strapi.documents("api::metier.metier").findMany({
+        const existing = await app.documents("api::metier.metier").findMany({
           filters: { titre: parsed.titre },
           populate: ["mediaPrincipal"],
         });
@@ -949,12 +950,13 @@ const main = async () => {
         let mediaPrincipal;
         let mediaSecondaire;
         if (existing.length > 0) {
+          continue;
           mediaPrincipal = existing.find(
             (metier) => metier.mediaPrincipal
           )?.mediaPrincipal;
           await Promise.all(
             existing.map((metier) =>
-              strapi
+              app
                 .documents("api::metier.metier")
                 .delete({ documentId: metier.documentId })
             )
@@ -990,6 +992,7 @@ const main = async () => {
           await fs.access(imageFullPath);
 
           mediaPrincipal = await checkAndUploadLocalFile(
+            app,
             imageFullPath,
             imageFileName
           );
@@ -1003,13 +1006,14 @@ const main = async () => {
             await fs.access(imageFullPath);
 
             mediaSecondaire = await checkAndUploadLocalFile(
+              app,
               imageFullPath,
               imageFileName
             );
           }
         }
 
-        await strapi.documents("api::metier.metier").create({
+        await app.documents("api::metier.metier").create({
           data: {
             titre: parsed.titre,
             description: markdownToBlocks(parsed.description),

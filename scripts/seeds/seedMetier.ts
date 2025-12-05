@@ -9,12 +9,8 @@ const TARGET_UID = "api::metier.metier";
  * @param strapi - The Strapi instance
  */
 export async function seedMetier(strapi: Core.Strapi) {
-  const existingValues = await strapi.documents(TARGET_UID).findMany();
-  for (const metier of existingValues) {
-    await strapi.documents(TARGET_UID).delete({
-      documentId: metier.documentId,
-    });
-  }
+  await strapi.db.query(TARGET_UID).deleteMany({});
+
   const filieres = await strapi.documents("api::filiere.filiere").findMany({
     filters: {
       nom: {

@@ -21,14 +21,7 @@ type FiliereSubset = Pick<
  * @param strapi - The Strapi instance
  */
 export async function seedFiliere(strapi: Core.Strapi) {
-  const existingValues = await strapi.documents(TARGET_UID).findMany();
-  await Promise.all(
-    existingValues.map(async (filiere) =>
-      strapi.documents(TARGET_UID).delete({
-        documentId: filiere.documentId,
-      })
-    )
-  );
+  await strapi.db.query(TARGET_UID).deleteMany({});
 
   const seedData: FiliereSubset[] = [];
   for (const item of filieres) {
