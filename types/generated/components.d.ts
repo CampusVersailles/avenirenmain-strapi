@@ -9,8 +9,8 @@ export interface SharedAdresse extends Struct.ComponentSchema {
     adresseComplete: Schema.Attribute.String;
     codePostal: Schema.Attribute.String;
     complement: Schema.Attribute.String;
-    latitude: Schema.Attribute.Decimal;
-    longitude: Schema.Attribute.Decimal;
+    latitude: Schema.Attribute.Float;
+    longitude: Schema.Attribute.Float;
     numeroRue: Schema.Attribute.String;
     pays: Schema.Attribute.String;
     rue: Schema.Attribute.String;
