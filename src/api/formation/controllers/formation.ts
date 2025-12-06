@@ -35,10 +35,18 @@ export default factories.createCoreController(
   "api::formation.formation",
   ({ strapi }) => ({
     async find(ctx) {
-      const { latitude, longitude, radius, fuzzy, ...otherQuery } = ctx.query;
+      const {
+        latitude,
+        longitude,
+        radius,
+        fuzzy,
+        withCoordinates,
+        ...otherQuery
+      } = ctx.query;
 
-      if (!latitude && !longitude && !fuzzy) {
-        return super.find(ctx);
+      if (!latitude && !longitude && !fuzzy && !withCoordinates) {
+        const result = await super.find(ctx);
+        return { ...result, data: { formations: result.data } };
       }
 
       const lat = latitude ? parseFloat(latitude as string) : null;
@@ -56,18 +64,20 @@ export default factories.createCoreController(
 
       const baseFilters = otherQuery.filters || {};
 
-      let lightFormations = (await strapi.entityService.findMany(TARGET_UID, {
-        filters: baseFilters,
-        fields: ["id", "titre"],
-        populate:
-          lat !== null && lng !== null
-            ? {
-                adresse: {
-                  fields: ["latitude", "longitude"],
-                },
-              }
-            : undefined,
-      })) as Formation[];
+      let lightFormations = (await strapi
+        .documents("api::formation.formation")
+        .findMany({
+          filters: baseFilters,
+          fields: ["id", "titre"],
+          populate:
+            withCoordinates || (lat !== null && lng !== null)
+              ? {
+                  adresse: {
+                    fields: ["latitude", "longitude"],
+                  },
+                }
+              : undefined,
+        })) as Formation[];
 
       if (fuzzy) {
         const fuse = new Fuse(lightFormations, {
@@ -146,9 +156,18 @@ export default factories.createCoreController(
       );
 
       return {
-        data: paginatedIds.map((id) =>
-          fullFormations.find((f: any) => f.id === id)
-        ),
+        data: {
+          formations: paginatedIds.map((id) =>
+            fullFormations.find((f: any) => f.id === id)
+          ),
+          coordinates: withCoordinates
+            ? filteredFormations.map((formation) => ({
+                documentId: formation.documentId,
+                latitude: formation.adresse.latitude,
+                longitude: formation.adresse.longitude,
+              }))
+            : [],
+        },
         meta: {
           pagination: {
             page,

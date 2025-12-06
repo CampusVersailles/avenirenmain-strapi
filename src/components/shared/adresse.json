@@ -27,10 +27,14 @@
       "type": "string"
     },
     "latitude": {
-      "type": "decimal"
+      "type": "float",
+      "scale": 8,
+      "precision": 11
     },
     "longitude": {
-      "type": "decimal"
+      "type": "float",
+      "scale": 8,
+      "precision": 11
     }
   },
   "config": {}
