@@ -1,0 +1,12 @@
+{
+  "jobs": [
+    {
+      "command": "0 2 1,15 * * ts-node scripts/api/onisep.ts",
+      "size": "S"
+    },
+    {
+      "command": "0 2 7,22 * * ts-node scripts/api/alternance.ts",
+      "size": "S"
+    }
+  ]
+}
