@@ -85,6 +85,7 @@ export default factories.createCoreController(
           threshold: 0.25,
           isCaseSensitive: false,
           includeScore: true,
+          ignoreDiacritics: true,
         });
 
         const searchResults = fuse.search(
