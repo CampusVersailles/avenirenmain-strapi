@@ -59,7 +59,8 @@
       "enum": [
         "ONISEP",
         "Alternance",
-        "Site"
+        "Site",
+        "AEM"
       ]
     },
     "origineId": {
