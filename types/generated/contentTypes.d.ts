@@ -623,6 +623,49 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiOrientationOrientation extends Struct.SingleTypeSchema {
+  collectionName: 'orientations';
+  info: {
+    displayName: 'Orientation';
+    pluralName: 'orientations';
+    singularName: 'orientation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    a_qui_sert_aem: Schema.Attribute.Component<'shared.bloc-contenu', true>;
+    bienvenue_aem: Schema.Attribute.Blocks;
+    bienvenue_aem_cartes: Schema.Attribute.Component<
+      'shared.bloc-contenu',
+      true
+    >;
+    ce_que_permet_aem: Schema.Attribute.Component<'shared.bloc-contenu', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::orientation.orientation'
+    > &
+      Schema.Attribute.Private;
+    pourquoi_choisir_description: Schema.Attribute.Blocks;
+    pourquoi_choisir_raisons: Schema.Attribute.Component<
+      'shared.element-de-liste',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    voies_de_formation: Schema.Attribute.Component<
+      'shared.titre-et-description',
+      true
+    >;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1138,6 +1181,7 @@ declare module '@strapi/strapi' {
       'api::formation-niveau.formation-niveau': ApiFormationNiveauFormationNiveau;
       'api::formation.formation': ApiFormationFormation;
       'api::metier.metier': ApiMetierMetier;
+      'api::orientation.orientation': ApiOrientationOrientation;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
