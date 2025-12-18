@@ -29,6 +29,28 @@ export interface SharedAppellation extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedBlocContenu extends Struct.ComponentSchema {
+  collectionName: 'components_shared_bloc_contenus';
+  info: {
+    displayName: 'BlocContenu';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    titre: Schema.Attribute.String;
+  };
+}
+
+export interface SharedElementDeListe extends Struct.ComponentSchema {
+  collectionName: 'components_shared_element_de_listes';
+  info: {
+    displayName: 'ElementDeListe';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+  };
+}
+
 export interface SharedLienMetier extends Struct.ComponentSchema {
   collectionName: 'components_shared_lien_metiers';
   info: {
@@ -101,6 +123,8 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'shared.adresse': SharedAdresse;
       'shared.appellation': SharedAppellation;
+      'shared.bloc-contenu': SharedBlocContenu;
+      'shared.element-de-liste': SharedElementDeListe;
       'shared.lien-metier': SharedLienMetier;
       'shared.pourquoi-metier': SharedPourquoiMetier;
       'shared.rome-code': SharedRomeCode;

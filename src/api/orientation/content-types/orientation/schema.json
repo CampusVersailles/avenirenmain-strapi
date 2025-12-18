@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "orientations",
+  "info": {
+    "singularName": "orientation",
+    "pluralName": "orientations",
+    "displayName": "Orientation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bienvenue_aem": {
+      "type": "blocks"
+    },
+    "bienvenue_aem_cartes": {
+      "type": "component",
+      "component": "shared.bloc-contenu",
+      "repeatable": true
+    },
+    "pourquoi_choisir_description": {
+      "type": "blocks"
+    },
+    "pourquoi_choisir_raisons": {
+      "type": "component",
+      "component": "shared.element-de-liste",
+      "repeatable": true
+    },
+    "a_qui_sert_aem": {
+      "type": "component",
+      "component": "shared.bloc-contenu",
+      "repeatable": true
+    },
+    "ce_que_permet_aem": {
+      "type": "component",
+      "component": "shared.bloc-contenu",
+      "repeatable": true
+    },
+    "voies_de_formation": {
+      "type": "component",
+      "component": "shared.titre-et-description",
+      "repeatable": true
+    }
+  }
+}

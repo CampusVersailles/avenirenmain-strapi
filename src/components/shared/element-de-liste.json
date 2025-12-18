@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_element_de_listes",
+  "info": {
+    "displayName": "ElementDeListe"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
