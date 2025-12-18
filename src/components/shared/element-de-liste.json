@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "Description": {
+    "description": {
       "type": "text"
     }
   },

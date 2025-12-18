@@ -47,7 +47,7 @@ export interface SharedElementDeListe extends Struct.ComponentSchema {
     displayName: 'ElementDeListe';
   };
   attributes: {
-    Description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
   };
 }
 
