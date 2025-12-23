@@ -68,11 +68,6 @@ export default factories.createCoreController(
         ...otherQuery
       } = ctx.query;
 
-      if (!latitude && !longitude && !fuzzy && !withCoordinates) {
-        const result = await super.find(ctx);
-        return { ...result, data: { formations: result.data } };
-      }
-
       const lat = latitude ? parseFloat(latitude as string) : null;
       const lng = longitude ? parseFloat(longitude as string) : null;
       const radiusKm = radius
