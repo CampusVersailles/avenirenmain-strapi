@@ -687,10 +687,7 @@ export interface ApiPartenairePartenaire extends Struct.CollectionTypeSchema {
       'api::partenaire.partenaire'
     > &
       Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     nom: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     site: Schema.Attribute.String;
