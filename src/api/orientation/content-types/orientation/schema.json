@@ -41,6 +41,14 @@
       "type": "component",
       "component": "shared.titre-et-description",
       "repeatable": true
+    },
+    "voies_de_formation_diagramme": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }
