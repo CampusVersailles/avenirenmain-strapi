@@ -12,10 +12,12 @@
   "pluginOptions": {},
   "attributes": {
     "titre": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "centresInterets": {
       "type": "component",
@@ -45,6 +47,7 @@
     "mediaPrincipal": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",

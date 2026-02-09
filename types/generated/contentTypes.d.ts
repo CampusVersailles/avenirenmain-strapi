@@ -592,7 +592,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks;
+    description: Schema.Attribute.Blocks & Schema.Attribute.Required;
     filieres: Schema.Attribute.Relation<'manyToMany', 'api::filiere.filiere'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -602,7 +602,8 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     mediaPrincipal: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
-    >;
+    > &
+      Schema.Attribute.Required;
     mediaSecondaire: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -615,7 +616,7 @@ export interface ApiMetierMetier extends Struct.CollectionTypeSchema {
       'shared.titre-et-description',
       true
     >;
-    titre: Schema.Attribute.String;
+    titre: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
