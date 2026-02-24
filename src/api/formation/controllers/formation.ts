@@ -109,7 +109,6 @@ export default factories.createCoreController(
         filteredFormations = (await strapi
           .documents("api::formation.formation")
           .findMany({
-            filters: baseFilters,
             fields: ["documentId", "id", "titre", "alternance"],
             populate: {
               adresse: {
