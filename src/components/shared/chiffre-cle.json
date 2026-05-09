@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_chiffre_cle",
+  "info": {
+    "displayName": "ChiffreClé"
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "chiffre": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

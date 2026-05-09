@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "fiche_pratiques",
+  "info": {
+    "singularName": "fiche-pratique",
+    "pluralName": "fiche-pratiques",
+    "displayName": "FichePratique"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}
