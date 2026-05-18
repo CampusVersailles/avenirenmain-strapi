@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_contenu_temoignages",
+  "info": {
+    "displayName": "ContenuTemoignage"
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "citation": {
+      "type": "blocks"
+    },
+    "source": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

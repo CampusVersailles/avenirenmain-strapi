@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_parties",
+  "info": {
+    "displayName": "Partie"
+  },
+  "options": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "sousParties": {
+      "type": "component",
+      "component": "shared.sous-partie",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
