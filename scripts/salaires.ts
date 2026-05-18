@@ -6,15 +6,20 @@ import "dotenv/config";
 import { DOMParser as XmldomParser } from "@xmldom/xmldom";
 import xpath from "xpath";
 
+type XPathNode = Parameters<typeof xpath.select>[1];
+
 export function parseSalairesPerCode(
-  xml: string
+  xml: string,
 ): Record<string, [number, number]> {
-  const doc = new XmldomParser().parseFromString(xml, "text/xml");
+  const doc = new XmldomParser().parseFromString(
+    xml,
+    "text/xml",
+  ) as unknown as XPathNode;
   const salairePerCode: Record<string, [number, number]> = {};
 
-  const periodes = xpath.select("//valeursParPeriode", doc) as Node[];
+  const periodes = xpath.select("//valeursParPeriode", doc) as XPathNode[];
   for (const periode of periodes) {
-    const codeNode = xpath.select1("codeActivite", periode) as Node;
+    const codeNode = xpath.select1("codeActivite", periode) as XPathNode;
     const codeActivite = codeNode.textContent?.trim();
     if (codeActivite) {
       const salaireMin = parseSalaire(periode, "SAL1");
@@ -27,11 +32,14 @@ export function parseSalairesPerCode(
   return salairePerCode;
 }
 
-export function parseSalaire(node: Node, codeNomenclature: string): number {
+export function parseSalaire(
+  node: XPathNode,
+  codeNomenclature: string,
+): number {
   const salaireNode = xpath.select1(
     `salaireValeurMontant[codeNomenclature='${codeNomenclature}']/valeurPrincipaleMontant`,
-    node
-  ) as Node;
+    node,
+  ) as XPathNode;
   const salaireText = salaireNode.textContent?.trim();
   const salaire = parseInt(salaireText);
   return salaire;
@@ -60,7 +68,7 @@ const main = async () => {
     formData.set("client_secret", env.FRANCE_TRAVAIL_CLIENT_SECRET);
     formData.set(
       "scope",
-      "api_rome-fiches-metiersv1 nomenclatureRome api_rome-metiersv1 nomenclatureRome api_stats-offres-demandes-emploiv1 offresetdemandesemploi"
+      "api_rome-fiches-metiersv1 nomenclatureRome api_rome-metiersv1 nomenclatureRome api_stats-offres-demandes-emploiv1 offresetdemandesemploi",
     );
 
     const authResponse = await axios.post<{
@@ -84,7 +92,7 @@ const main = async () => {
           Accept: "application/xml",
           Authorization: `Bearer ${token}`,
         },
-      }
+      },
     );
     const xml = response.data as string;
 
@@ -92,7 +100,7 @@ const main = async () => {
 
     console.log(
       "Nombre de codes activités avec salaire:",
-      Object.keys(salairePerCode).length
+      Object.keys(salairePerCode).length,
     );
 
     let nFound = 0;

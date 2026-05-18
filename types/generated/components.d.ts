@@ -41,6 +41,84 @@ export interface SharedBlocContenu extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedChiffreCle extends Struct.ComponentSchema {
+  collectionName: 'components_shared_chiffre_cle';
+  info: {
+    displayName: 'ChiffreCl\u00E9';
+  };
+  attributes: {
+    chiffre: Schema.Attribute.Decimal;
+    titre: Schema.Attribute.String;
+  };
+}
+
+export interface SharedContenu extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contenus';
+  info: {
+    displayName: 'Contenu';
+  };
+  attributes: {
+    chiffre: Schema.Attribute.Component<'shared.contenu-chiffres', false>;
+    cta: Schema.Attribute.Component<'shared.contenu-cta', false>;
+    image: Schema.Attribute.Component<'shared.contenu-image', false>;
+    temoignage: Schema.Attribute.Component<'shared.contenu-temoignage', false>;
+    texte: Schema.Attribute.Component<'shared.contenu-texte', false>;
+  };
+}
+
+export interface SharedContenuChiffres extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contenu_chiffres';
+  info: {
+    displayName: 'ContenuChiffres';
+  };
+  attributes: {
+    chiffres: Schema.Attribute.Component<'shared.chiffre-cle', true>;
+  };
+}
+
+export interface SharedContenuCta extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contenu_ctas';
+  info: {
+    displayName: 'ContenuCTA';
+  };
+  attributes: {
+    cta: Schema.Attribute.String;
+    texte: Schema.Attribute.Blocks;
+  };
+}
+
+export interface SharedContenuImage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contenu_images';
+  info: {
+    displayName: 'ContenuImage';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SharedContenuTemoignage extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contenu_temoignages';
+  info: {
+    displayName: 'ContenuTemoignage';
+  };
+  attributes: {
+    citation: Schema.Attribute.Blocks;
+    source: Schema.Attribute.Blocks;
+    titre: Schema.Attribute.String;
+  };
+}
+
+export interface SharedContenuTexte extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contenu_textes';
+  info: {
+    displayName: 'ContenuTexte';
+  };
+  attributes: {
+    texte: Schema.Attribute.Blocks;
+  };
+}
+
 export interface SharedElementDeListe extends Struct.ComponentSchema {
   collectionName: 'components_shared_element_de_listes';
   info: {
@@ -59,6 +137,17 @@ export interface SharedLienMetier extends Struct.ComponentSchema {
   attributes: {
     metier: Schema.Attribute.Relation<'oneToOne', 'api::metier.metier'>;
     nom: Schema.Attribute.String;
+  };
+}
+
+export interface SharedPartie extends Struct.ComponentSchema {
+  collectionName: 'components_shared_parties';
+  info: {
+    displayName: 'Partie';
+  };
+  attributes: {
+    sousParties: Schema.Attribute.Component<'shared.sous-partie', true>;
+    titre: Schema.Attribute.String;
   };
 }
 
@@ -107,6 +196,17 @@ export interface SharedSalaire extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSousPartie extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sous_parties';
+  info: {
+    displayName: 'SousPartie';
+  };
+  attributes: {
+    contenu: Schema.Attribute.Component<'shared.contenu', true>;
+    titre: Schema.Attribute.String;
+  };
+}
+
 export interface SharedTitreEtDescription extends Struct.ComponentSchema {
   collectionName: 'components_shared_titre_et_descriptions';
   info: {
@@ -124,12 +224,21 @@ declare module '@strapi/strapi' {
       'shared.adresse': SharedAdresse;
       'shared.appellation': SharedAppellation;
       'shared.bloc-contenu': SharedBlocContenu;
+      'shared.chiffre-cle': SharedChiffreCle;
+      'shared.contenu': SharedContenu;
+      'shared.contenu-chiffres': SharedContenuChiffres;
+      'shared.contenu-cta': SharedContenuCta;
+      'shared.contenu-image': SharedContenuImage;
+      'shared.contenu-temoignage': SharedContenuTemoignage;
+      'shared.contenu-texte': SharedContenuTexte;
       'shared.element-de-liste': SharedElementDeListe;
       'shared.lien-metier': SharedLienMetier;
+      'shared.partie': SharedPartie;
       'shared.pourquoi-metier': SharedPourquoiMetier;
       'shared.rome-code': SharedRomeCode;
       'shared.rome-domaine-pro': SharedRomeDomainePro;
       'shared.salaire': SharedSalaire;
+      'shared.sous-partie': SharedSousPartie;
       'shared.titre-et-description': SharedTitreEtDescription;
     }
   }

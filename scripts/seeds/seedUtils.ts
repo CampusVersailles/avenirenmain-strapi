@@ -15,7 +15,7 @@ import { PluginUploadFile } from "../../types/generated/contentTypes";
 export async function insertDocuments<T>(
   strapi: Core.Strapi,
   data: T[],
-  targetUid: UID.ContentType
+  targetUid: UID.ContentType,
 ) {
   for (const item of data) {
     await strapi.documents(targetUid).create({
@@ -33,7 +33,7 @@ export async function insertDocuments<T>(
  */
 export async function checkFileExistsBeforeUpload(
   url: string,
-  name: string
+  name: string,
 ): Promise<PluginUploadFile> {
   // Check if the file already exists in Strapi
   const fileWhereName = await strapi.query("plugin::upload.file").findOne({
@@ -90,7 +90,7 @@ async function downloadFromUrl(url: string, name: string): Promise<FileData> {
     filepath: tmpPath,
     originalFileName: name,
     size: buffer.length,
-    mimetype: mimeType,
+    mimetype: mimeType.toString(),
   };
 }
 

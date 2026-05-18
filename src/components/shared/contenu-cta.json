@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_contenu_ctas",
+  "info": {
+    "displayName": "ContenuCTA"
+  },
+  "options": {},
+  "attributes": {
+    "cta": {
+      "type": "string"
+    },
+    "texte": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
