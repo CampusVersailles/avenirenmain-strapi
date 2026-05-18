@@ -20,12 +20,7 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
+      "allowedTypes": ["images", "files", "videos", "audios"]
     },
     "intro": {
       "type": "blocks"
@@ -41,7 +36,7 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "Gestion Fincancière",
+        "Gestion Financière",
         "Strategie",
         "Gestion Administrative",
         "Communication",
