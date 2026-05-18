@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_contenus",
+  "info": {
+    "displayName": "Contenu"
+  },
+  "options": {},
+  "attributes": {
+    "texte": {
+      "type": "component",
+      "component": "shared.contenu-texte",
+      "repeatable": false
+    },
+    "image": {
+      "type": "component",
+      "component": "shared.contenu-image",
+      "repeatable": false
+    },
+    "chiffre": {
+      "type": "component",
+      "component": "shared.contenu-chiffres",
+      "repeatable": false
+    },
+    "cta": {
+      "type": "component",
+      "component": "shared.contenu-cta",
+      "repeatable": false
+    },
+    "temoignage": {
+      "type": "component",
+      "component": "shared.contenu-temoignage",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
