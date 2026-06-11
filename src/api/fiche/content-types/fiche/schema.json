@@ -36,9 +36,9 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "Gestion Financière",
+        "Finance",
         "Strategie",
-        "Gestion Administrative",
+        "Administration",
         "Communication",
         "Entreprendre"
       ]

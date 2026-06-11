@@ -495,9 +495,9 @@ export interface ApiFicheFiche extends Struct.CollectionTypeSchema {
     titre: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<
       [
-        'Gestion Financi\u00E8re',
+        'Finance',
         'Strategie',
-        'Gestion Administrative',
+        'Administration',
         'Communication',
         'Entreprendre',
       ]
