@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "titre": {
+      "type": "string"
+    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -14,6 +17,9 @@
         "videos",
         "audios"
       ]
+    },
+    "source": {
+      "type": "string"
     }
   },
   "config": {}
