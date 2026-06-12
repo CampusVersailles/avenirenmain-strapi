@@ -94,6 +94,8 @@ export interface SharedContenuImage extends Struct.ComponentSchema {
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    source: Schema.Attribute.String;
+    titre: Schema.Attribute.String;
   };
 }
 
