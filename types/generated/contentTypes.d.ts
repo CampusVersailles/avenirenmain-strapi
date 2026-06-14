@@ -440,6 +440,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCasPratiqueCasPratique extends Struct.CollectionTypeSchema {
+  collectionName: 'cas_pratiques';
+  info: {
+    displayName: 'CasPratique';
+    pluralName: 'cas-pratiques';
+    singularName: 'cas-pratique';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    intro: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cas-pratique.cas-pratique'
+    > &
+      Schema.Attribute.Private;
+    parties: Schema.Attribute.Component<'shared.partie', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    sousTitre: Schema.Attribute.String;
+    titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFichePratiqueFichePratique extends Struct.SingleTypeSchema {
   collectionName: 'fiche_pratiques';
   info: {
@@ -1325,6 +1357,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::cas-pratique.cas-pratique': ApiCasPratiqueCasPratique;
       'api::fiche-pratique.fiche-pratique': ApiFichePratiqueFichePratique;
       'api::fiche.fiche': ApiFicheFiche;
       'api::filiere.filiere': ApiFiliereFiliere;
