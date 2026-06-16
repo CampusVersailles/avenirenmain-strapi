@@ -472,6 +472,102 @@ export interface ApiCasPratiqueCasPratique extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEtudeDeCasEtudeDeCas extends Struct.SingleTypeSchema {
+  collectionName: 'etudes_de_cas';
+  info: {
+    displayName: 'EtudeDeCas';
+    pluralName: 'etudes-de-cas';
+    singularName: 'etude-de-cas';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::etude-de-cas.etude-de-cas'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFicheFormationIntroFicheFormationIntro
+  extends Struct.SingleTypeSchema {
+  collectionName: 'fiche_formation_intros';
+  info: {
+    displayName: 'FicheFormationIntro';
+    pluralName: 'fiche-formation-intros';
+    singularName: 'fiche-formation-intro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fiche-formation-intro.fiche-formation-intro'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFicheFormationFicheFormation
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fiche_formations';
+  info: {
+    displayName: 'FicheFormation';
+    pluralName: 'fiche-formations';
+    singularName: 'fiche-formation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    intro: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fiche-formation.fiche-formation'
+    > &
+      Schema.Attribute.Private;
+    parties: Schema.Attribute.Component<'shared.partie', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    sousTitre: Schema.Attribute.String;
+    temps: Schema.Attribute.String;
+    titre: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      ['Initier', 'Structurer', 'P\u00E9renniser', 'Rayonner']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFichePratiqueFichePratique extends Struct.SingleTypeSchema {
   collectionName: 'fiche_pratiques';
   info: {
@@ -674,6 +770,32 @@ export interface ApiFormationFormation extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     romeCodeMetiers: Schema.Attribute.Component<'shared.rome-code', true>;
     siteWeb: Schema.Attribute.Text;
+    titre: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGuideGuide extends Struct.SingleTypeSchema {
+  collectionName: 'guides';
+  info: {
+    displayName: 'Guide';
+    pluralName: 'guides';
+    singularName: 'guide';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     titre: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1358,12 +1480,16 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::cas-pratique.cas-pratique': ApiCasPratiqueCasPratique;
+      'api::etude-de-cas.etude-de-cas': ApiEtudeDeCasEtudeDeCas;
+      'api::fiche-formation-intro.fiche-formation-intro': ApiFicheFormationIntroFicheFormationIntro;
+      'api::fiche-formation.fiche-formation': ApiFicheFormationFicheFormation;
       'api::fiche-pratique.fiche-pratique': ApiFichePratiqueFichePratique;
       'api::fiche.fiche': ApiFicheFiche;
       'api::filiere.filiere': ApiFiliereFiliere;
       'api::formation-duree.formation-duree': ApiFormationDureeFormationDuree;
       'api::formation-niveau.formation-niveau': ApiFormationNiveauFormationNiveau;
       'api::formation.formation': ApiFormationFormation;
+      'api::guide.guide': ApiGuideGuide;
       'api::metier.metier': ApiMetierMetier;
       'api::orientation.orientation': ApiOrientationOrientation;
       'api::partenaire.partenaire': ApiPartenairePartenaire;

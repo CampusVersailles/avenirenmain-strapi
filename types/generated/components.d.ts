@@ -83,6 +83,7 @@ export interface SharedContenuCta extends Struct.ComponentSchema {
   };
   attributes: {
     cta: Schema.Attribute.String;
+    sideTexte: Schema.Attribute.Blocks;
     texte: Schema.Attribute.Blocks;
   };
 }
