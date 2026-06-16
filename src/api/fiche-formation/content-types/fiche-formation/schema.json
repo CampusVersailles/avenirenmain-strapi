@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "fiches",
+  "collectionName": "fiche_formations",
   "info": {
-    "singularName": "fiche",
-    "pluralName": "fiches",
-    "displayName": "Fiche"
+    "singularName": "fiche-formation",
+    "pluralName": "fiche-formations",
+    "displayName": "FicheFormation"
   },
   "options": {
     "draftAndPublish": true
@@ -41,11 +41,10 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "Finance",
-        "Strategie",
-        "Administration",
-        "Communication",
-        "Entreprendre"
+        "Initier",
+        "Structurer",
+        "Pérenniser",
+        "Rayonner"
       ]
     }
   }
