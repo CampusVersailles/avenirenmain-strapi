@@ -34,6 +34,15 @@
       "type": "component",
       "component": "shared.partie",
       "repeatable": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Association de filières",
+        "Labos de formation et d'innovation",
+        "Centre de réinterprétation du patrimoine",
+        "Lieux de production pluridisciplinaire / pépinières"
+      ]
     }
   }
 }
