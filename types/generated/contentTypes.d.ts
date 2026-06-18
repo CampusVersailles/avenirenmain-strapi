@@ -466,6 +466,14 @@ export interface ApiCasPratiqueCasPratique extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     sousTitre: Schema.Attribute.String;
     titre: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<
+      [
+        'Association de fili\u00E8res',
+        "Labos de formation et d'innovation",
+        'Centre de r\u00E9interpr\u00E9tation du patrimoine',
+        'Lieux de production pluridisciplinaire / p\u00E9pini\u00E8res',
+      ]
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
