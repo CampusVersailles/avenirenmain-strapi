@@ -49,6 +49,7 @@ export interface SharedChiffreCle extends Struct.ComponentSchema {
   attributes: {
     chiffre: Schema.Attribute.Decimal;
     titre: Schema.Attribute.String;
+    unite: Schema.Attribute.String;
   };
 }
 
@@ -118,7 +119,9 @@ export interface SharedContenuTexte extends Struct.ComponentSchema {
     displayName: 'ContenuTexte';
   };
   attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     texte: Schema.Attribute.Blocks;
+    titre: Schema.Attribute.String;
   };
 }
 
