@@ -480,6 +480,42 @@ export interface ApiCasPratiqueCasPratique extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiDispositifDispositif extends Struct.CollectionTypeSchema {
+  collectionName: 'dispositifs';
+  info: {
+    displayName: 'Dispositif';
+    pluralName: 'dispositifs';
+    singularName: 'dispositif';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    acteurs: Schema.Attribute.Component<'shared.acteurs', true>;
+    besoins: Schema.Attribute.Component<'shared.besoins', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    echelle: Schema.Attribute.String;
+    lien: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dispositif.dispositif'
+    > &
+      Schema.Attribute.Private;
+    objectifs: Schema.Attribute.Component<'shared.objectifs', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    sousTitre: Schema.Attribute.String;
+    titre: Schema.Attribute.String;
+    type: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEtudeDeCasEtudeDeCas extends Struct.SingleTypeSchema {
   collectionName: 'etudes_de_cas';
   info: {
@@ -1488,6 +1524,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::cas-pratique.cas-pratique': ApiCasPratiqueCasPratique;
+      'api::dispositif.dispositif': ApiDispositifDispositif;
       'api::etude-de-cas.etude-de-cas': ApiEtudeDeCasEtudeDeCas;
       'api::fiche-formation-intro.fiche-formation-intro': ApiFicheFormationIntroFicheFormationIntro;
       'api::fiche-formation.fiche-formation': ApiFicheFormationFicheFormation;

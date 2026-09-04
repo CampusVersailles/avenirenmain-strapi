@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_objectifs",
+  "info": {
+    "displayName": "objectifs"
+  },
+  "options": {},
+  "attributes": {
+    "objectif": {
+      "type": "enumeration",
+      "enum": [
+        "impulser",
+        "structurer",
+        "pérenisser",
+        "rayonner "
+      ]
+    }
+  },
+  "config": {}
+}
