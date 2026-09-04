@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_acteurs",
+  "info": {
+    "displayName": "acteurs"
+  },
+  "options": {},
+  "attributes": {
+    "acteur": {
+      "type": "enumeration",
+      "enum": [
+        "état ou collectivité",
+        "professionnel des métiers d'art",
+        "association",
+        "entreprise",
+        "établissement culturel"
+      ]
+    }
+  },
+  "config": {}
+}

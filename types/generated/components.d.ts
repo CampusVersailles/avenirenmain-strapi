@@ -1,5 +1,23 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedActeurs extends Struct.ComponentSchema {
+  collectionName: 'components_shared_acteurs';
+  info: {
+    displayName: 'acteurs';
+  };
+  attributes: {
+    acteur: Schema.Attribute.Enumeration<
+      [
+        '\u00E9tat ou collectivit\u00E9',
+        "professionnel des m\u00E9tiers d'art",
+        'association',
+        'entreprise',
+        '\u00E9tablissement culturel',
+      ]
+    >;
+  };
+}
+
 export interface SharedAdresse extends Struct.ComponentSchema {
   collectionName: 'components_shared_adresses';
   info: {
@@ -26,6 +44,26 @@ export interface SharedAppellation extends Struct.ComponentSchema {
   attributes: {
     metier: Schema.Attribute.Relation<'oneToOne', 'api::metier.metier'>;
     nom: Schema.Attribute.String;
+  };
+}
+
+export interface SharedBesoins extends Struct.ComponentSchema {
+  collectionName: 'components_shared_besoins';
+  info: {
+    displayName: 'besoins';
+  };
+  attributes: {
+    besoin: Schema.Attribute.Enumeration<
+      [
+        'interlocuteur',
+        'formation',
+        'expertise',
+        'financement',
+        'r\u00E9seau',
+        'accompagnement',
+        'label',
+      ]
+    >;
   };
 }
 
@@ -146,6 +184,18 @@ export interface SharedLienMetier extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedObjectifs extends Struct.ComponentSchema {
+  collectionName: 'components_shared_objectifs';
+  info: {
+    displayName: 'objectifs';
+  };
+  attributes: {
+    objectif: Schema.Attribute.Enumeration<
+      ['impulser', 'structurer', 'p\u00E9renisser', 'rayonner ']
+    >;
+  };
+}
+
 export interface SharedPartie extends Struct.ComponentSchema {
   collectionName: 'components_shared_parties';
   info: {
@@ -227,8 +277,10 @@ export interface SharedTitreEtDescription extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.acteurs': SharedActeurs;
       'shared.adresse': SharedAdresse;
       'shared.appellation': SharedAppellation;
+      'shared.besoins': SharedBesoins;
       'shared.bloc-contenu': SharedBlocContenu;
       'shared.chiffre-cle': SharedChiffreCle;
       'shared.contenu': SharedContenu;
@@ -239,6 +291,7 @@ declare module '@strapi/strapi' {
       'shared.contenu-texte': SharedContenuTexte;
       'shared.element-de-liste': SharedElementDeListe;
       'shared.lien-metier': SharedLienMetier;
+      'shared.objectifs': SharedObjectifs;
       'shared.partie': SharedPartie;
       'shared.pourquoi-metier': SharedPourquoiMetier;
       'shared.rome-code': SharedRomeCode;

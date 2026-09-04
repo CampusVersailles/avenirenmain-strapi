@@ -9,6 +9,8 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
+    "import:dispositifs": "NODE_OPTIONS=--no-experimental-require-module tsx scripts/dispositifs.ts",
+    "import:dispositifs:dry": "NODE_OPTIONS=--no-experimental-require-module tsx scripts/dispositifs.ts --dry-run",
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
