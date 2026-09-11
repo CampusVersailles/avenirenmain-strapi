@@ -1554,6 +1554,7 @@ declare module "@strapi/strapi" {
       "admin::user": AdminUser;
       "api::cas-pratique.cas-pratique": ApiCasPratiqueCasPratique;
       "api::dispositif.dispositif": ApiDispositifDispositif;
+      "api::dispositif-intro.dispositif-intro": ApiDispositifIntroDispositifIntro;
       "api::etude-de-cas.etude-de-cas": ApiEtudeDeCasEtudeDeCas;
       "api::fiche-formation-intro.fiche-formation-intro": ApiFicheFormationIntroFicheFormationIntro;
       "api::fiche-formation.fiche-formation": ApiFicheFormationFicheFormation;
