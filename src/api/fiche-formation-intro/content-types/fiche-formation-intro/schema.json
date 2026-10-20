@@ -4,7 +4,7 @@
   "info": {
     "singularName": "fiche-formation-intro",
     "pluralName": "fiche-formation-intros",
-    "displayName": "FicheFormationIntro"
+    "displayName": "Fiche pratique intro T&F"
   },
   "options": {
     "draftAndPublish": true

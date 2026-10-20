@@ -4,7 +4,7 @@
   "info": {
     "singularName": "fiche-formation",
     "pluralName": "fiche-formations",
-    "displayName": "FicheFormation"
+    "displayName": "Fiche pratique T&F"
   },
   "options": {
     "draftAndPublish": true
