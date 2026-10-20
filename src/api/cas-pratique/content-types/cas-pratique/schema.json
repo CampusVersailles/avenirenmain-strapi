@@ -4,7 +4,7 @@
   "info": {
     "singularName": "cas-pratique",
     "pluralName": "cas-pratiques",
-    "displayName": "CasPratique"
+    "displayName": "Etudes de cas T&F"
   },
   "options": {
     "draftAndPublish": true

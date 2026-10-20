@@ -4,7 +4,7 @@
   "info": {
     "singularName": "formation-duree",
     "pluralName": "formation-durees",
-    "displayName": "FormationDuree"
+    "displayName": "Formation duree"
   },
   "options": {
     "draftAndPublish": true

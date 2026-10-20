@@ -4,7 +4,7 @@
   "info": {
     "singularName": "fiche-pratique",
     "pluralName": "fiche-pratiques",
-    "displayName": "FichePratique"
+    "displayName": "Fiche pédagogique intro"
   },
   "options": {
     "draftAndPublish": true
