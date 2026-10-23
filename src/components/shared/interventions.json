@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_interventions",
+  "info": {
+    "displayName": "Interventions"
+  },
+  "options": {},
+  "attributes": {
+    "intervention": {
+      "type": "enumeration",
+      "enum": [
+        "National",
+        "Régional"
+      ]
+    }
+  },
+  "config": {}
+}
