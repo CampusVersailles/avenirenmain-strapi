@@ -173,6 +173,16 @@ export interface SharedElementDeListe extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedInterventions extends Struct.ComponentSchema {
+  collectionName: 'components_shared_interventions';
+  info: {
+    displayName: 'Interventions';
+  };
+  attributes: {
+    intervention: Schema.Attribute.Enumeration<['National', 'R\u00E9gional']>;
+  };
+}
+
 export interface SharedLienMetier extends Struct.ComponentSchema {
   collectionName: 'components_shared_lien_metiers';
   info: {
@@ -275,7 +285,7 @@ export interface SharedTitreEtDescription extends Struct.ComponentSchema {
 }
 
 declare module '@strapi/strapi' {
-  export module Public {
+  export namespace Public {
     export interface ComponentSchemas {
       'shared.acteurs': SharedActeurs;
       'shared.adresse': SharedAdresse;
@@ -290,6 +300,7 @@ declare module '@strapi/strapi' {
       'shared.contenu-temoignage': SharedContenuTemoignage;
       'shared.contenu-texte': SharedContenuTexte;
       'shared.element-de-liste': SharedElementDeListe;
+      'shared.interventions': SharedInterventions;
       'shared.lien-metier': SharedLienMetier;
       'shared.objectifs': SharedObjectifs;
       'shared.partie': SharedPartie;

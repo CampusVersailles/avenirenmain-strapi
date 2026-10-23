@@ -26,9 +26,6 @@
     "type": {
       "type": "string"
     },
-    "echelle": {
-      "type": "string"
-    },
     "acteurs": {
       "type": "component",
       "component": "shared.acteurs",
@@ -42,6 +39,11 @@
     "besoins": {
       "type": "component",
       "component": "shared.besoins",
+      "repeatable": true
+    },
+    "interventions": {
+      "type": "component",
+      "component": "shared.interventions",
       "repeatable": true
     }
   }

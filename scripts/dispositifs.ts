@@ -1,7 +1,7 @@
+import "dotenv/config";
 import { compileStrapi, createStrapi } from "@strapi/strapi";
 import fs from "fs/promises";
 import path from "path";
-import "dotenv/config";
 
 const DISPOSITIF_UID = "api::dispositif.dispositif";
 
@@ -9,12 +9,12 @@ type CsvRecord = {
   dispositif: string;
   structure: string;
   type: string;
-  echelle: string;
   presentation: string;
   lien: string;
   acteur: string;
   objectif: string;
   besoin: string;
+  intervention: string;
 };
 
 const ACTEUR_ENUM_MAP: Record<string, string> = {
@@ -40,6 +40,11 @@ const BESOIN_ENUM_MAP: Record<string, string> = {
   reseau: "réseau",
   accompagnement: "accompagnement",
   label: "label",
+};
+
+const INTERVENTION_ENUM_MAP: Record<string, string> = {
+  national: "National",
+  regional: "Régional",
 };
 
 function normalizeForLookup(value: string): string {
@@ -147,7 +152,6 @@ function mapEnumValues(
       );
       continue;
     }
-
     if (!mapped.includes(normalized)) {
       mapped.push(normalized);
     }
@@ -191,15 +195,15 @@ function rowsToRecords(rows: string[][]): CsvRecord[] {
         dispositif: getValueByColumn(row, headerIndex, ["dispositif"]),
         structure: getValueByColumn(row, headerIndex, ["structure"]),
         type: getValueByColumn(row, headerIndex, ["type"]),
-        echelle: getValueByColumn(row, headerIndex, [
-          "echelledintervention",
-          "echelle",
-        ]),
         presentation: getValueByColumn(row, headerIndex, ["presentation"]),
         lien: getValueByColumn(row, headerIndex, ["ensavoirplus", "lien"]),
         acteur: getValueByColumn(row, headerIndex, ["acteur", "acteurs"]),
         objectif: getValueByColumn(row, headerIndex, ["objectif", "objectifs"]),
         besoin: getValueByColumn(row, headerIndex, ["besoin", "besoins"]),
+        intervention: getValueByColumn(row, headerIndex, [
+          "echelledintervention",
+          "echelle",
+        ]),
       };
 
       return record;
@@ -254,16 +258,23 @@ async function main() {
         titre,
       ).map((besoin) => ({ besoin }));
 
+      const interventions = mapEnumValues(
+        splitMultiValues(record.intervention),
+        INTERVENTION_ENUM_MAP,
+        "intervention",
+        titre,
+      ).map((intervention) => ({ intervention }));
+
       const payload = {
         titre,
         sousTitre: record.structure,
         type: record.type,
-        echelle: record.echelle,
         lien: record.lien,
         description: toBlocks(record.presentation),
         acteurs,
         objectifs,
         besoins,
+        interventions,
       };
 
       const existing = await app.documents(DISPOSITIF_UID).findFirst({
